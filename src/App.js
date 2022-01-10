@@ -13,26 +13,30 @@ import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [currUser, setCurrUser] = useLocalStorage("currUser", undefined);
+  const [currToken, setCurrToken] = useLocalStorage("currToken", undefined);
   // const navigate = useNavigate()
   // const [isLoading, setIsLoading] = useState(true);
 
   // if (isLoading) {
   //   return <p>Loading &hellip;</p>;
   // }
+  if (currToken) RepnileApi.addToken(currToken);
 
 async function login(userData) {
     let user = await RepnileApi.loginUser(userData);
-    setCurrUser(user)
+    setCurrUser(user.username)
+    setCurrToken(user.token)
   }
 
 async function logout(){
   setCurrUser(undefined)
+  setCurrToken(undefined)
   localStorage.clear()
   RepnileApi.logoutUser()
 }
 
   return (
-    <UserContext.Provider value = {{user: currUser}}>
+    <UserContext.Provider value = {{username: currUser, token: currToken}}>
     <div className="App">
       <header className="App-header">
           <AppRoutes login={login} logout={logout} />

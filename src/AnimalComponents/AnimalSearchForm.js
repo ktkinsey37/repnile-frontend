@@ -8,7 +8,7 @@ import React, { useState } from "react";
  */
 
 const AnimalSearchForm = ({ search }) => {
-  const INITIAL_STATE = {name: ""};
+  const INITIAL_STATE = {};
   const [formData, setFormData] = useState(INITIAL_STATE);
 
   /** Send {name, quantity} to parent
@@ -93,7 +93,7 @@ const AnimalSearchForm = ({ search }) => {
       <input
       id="price"
       name="price"
-      value={formData.name}
+      value={formData.price}
       onChange={handleChange}
       placeholder="Price"
       />

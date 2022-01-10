@@ -31,8 +31,11 @@ function AnimalsPage({ }) {
 
     async function search(params) {
         setIsLoading(true)
+        console.log(params, "params in search isnide animalspage")
         let animals = await RepnileApi.getAnimalsQuery(params);
+        console.log(animals, "animals in search")
         setAnimals(animals);
+        setIsLoading(false);
       }
   
     if (isLoading) {

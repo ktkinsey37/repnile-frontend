@@ -39,10 +39,15 @@ class RepnileApi {
 
   /** Get details on a company by handle. */
 
+  static addToken(token){
+    this.token = token;
+  }
+
   static async loginUser(formData){
     let res = await this.request("auth/token", formData, "post")
+    const returnVal = {username: formData.username, token: res.token}
     this.token = res.token
-    return formData.username
+    return returnVal
   }
 
   static async logoutUser(){
@@ -50,7 +55,9 @@ class RepnileApi {
   }
 
   static async getAnimal(id) {
+    console.log(id, "this is id in repnileapi")
     let res = await this.request(`animals/${id}`);
+    console.log(res, "this is res in getanimal in repnileapi")
     return res.animal;
   }
 
@@ -61,6 +68,7 @@ class RepnileApi {
   }
 
   static async getAnimalsQuery(params){
+    console.log(params, "params in getanimalsquery")
     let res = await this.request("animals", params)
     return res.animals;
   }
@@ -68,12 +76,12 @@ class RepnileApi {
   static async addAnimal(formData){
     console.log(formData, "formData addanimal in api")
     // NEED TO HANDLE DATA INPUT AT THIS STEP
-    formData.forSale = formData.forSale.toLowerCase()
-    if (formData.forSale = "true") formData.forSale = true;
-    else if (formData.forSale = "false") formData.forSale = false;
-    else throw new Error("For Sale needs to be either true or false")
+    // if (formData.forSale = "true") formData.forSale = true;
+    // else if (formData.forSale = "false") formData.forSale = false;
+    // else throw new Error("For Sale needs to be either true or false")
     let res = await this.request("animals", formData, "post")
     console.log(res, "this is res in api")
+    return res;
   }
 
   static async addItem(formData){
@@ -87,12 +95,26 @@ class RepnileApi {
 
   static async getAllAItems(){
     let res = await this.request("items")
-    return res.companies;
+    return res.items;
   }
 
   static async getAItemsQuery(term){
     let res = await this.request("items", term)
     return res.animals;
+  }
+
+  static async getAllMessageThreads(){
+    let res = await this.request("messages")
+    return res;
+  }
+
+  static async getMessageThread(id){
+    let res = await this.request(`messages/${id}`)
+    return res;
+  }
+
+  static async postMessage(formData){
+    let res = await this.request("messages", formData, "post")
   }
 
 

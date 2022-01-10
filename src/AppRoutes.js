@@ -5,11 +5,12 @@ import HomePage from "./HomePage";
 import NavBar from "./NavBar";
 import AnimalsPage from "./AnimalComponents/AnimalsPage";
 import AnimalAddForm from "./AnimalComponents/AnimalAddForm";
+import MessagesPage from "./MessagesComponents/MessagesPage";
 import ItemsPage from "./ItemComponents/ItemsPage";
 import Item from "./ItemComponents/Item";
 import Animal from "./AnimalComponents/Animal";
 import LoginForm from "./AdminRoutes/LoginForm";
-import Logout from "./AdminRoutes/Logout";
+import MessageThread from "./MessagesComponents/MessageThread";
 import { Route, Routes } from "react-router-dom";
 import UserContext from "./UserContext";
 
@@ -20,27 +21,26 @@ function AppRoutes({login, logout}) {
 
     console.log(user, "this is user in approutes")
 
-    if (user.user == "test"){
+    if (user.username == "test"){
         return (
             <BrowserRouter>
-            <NavBar />
+            <NavBar logout={logout} />
             <main>
             <Routes>
                 <Route exact path="/" element={<HomePage />}/>
-                <Route exact path="/messages" element={<HomePage />}/>
+                <Route exact path="/messages" element={<MessagesPage />}/>
+                <Route exact path="/messages/:id" cantFind="/messages" element={<MessageThread />}/>
                 <Route exact path="/animals" element={<AnimalsPage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
                 <Route exact path="/animals/add" element={<AnimalAddForm />}/>
                 <Route exact path="/item" element={<ItemsPage />}/>
                 <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
-                {<Route exact path="/logout" element={<Logout logout={logout}/>}/>}
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>
             </Routes>
             </main>
             </BrowserRouter>
         )};
 
-        // Remove the logout route and just style the button in the nav
         return (
             <BrowserRouter>
             <NavBar />

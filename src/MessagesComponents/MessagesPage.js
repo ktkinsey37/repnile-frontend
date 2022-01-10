@@ -8,39 +8,30 @@ import {
   ListGroup,
   ListGroupItem
 } from "reactstrap";
+import MessageThread from "./MessageThread"
 import RepnileApi from "../api"
-import AnimalSearchForm from "./AnimalSearchForm";
-import AnimalCard from "./AnimalCard";
 
 
 
-function MessagesPage({ }) {
+function MessagesPage() {
 
     const [isLoading, setIsLoading] = useState(true);
-    const [animals, setAnimals] = useState([]);
+    const [messageThreads, setMessageThreads] = useState([]);
 
     useEffect(() => {
-      async function getAnimals() {
-        let animals = await RepnileApi.getAllAnimals();
-        console.log(typeof(animals), "animals in the useeffect")
-        setAnimals(animals)
+      async function getMessageThreads() {
+        let messageThreads = await RepnileApi.getAllMessageThreads();
+        messageThreads = messageThreads.messages
+        setMessageThreads(messageThreads)
         setIsLoading(false);
       }
-      getAnimals()
+      getMessageThreads()
     }, []);
-
-    async function search(params) {
-        setIsLoading(true)
-        let animals = await RepnileApi.getAnimalsQuery(params);
-        setAnimals(animals);
-      }
   
+    console.log(messageThreads, "this is messagethreads before it runs in react")
     if (isLoading) {
       return <p>Loading &hellip;</p>;
     }
-
-    console.log(animals, "animals before the map")
-    console.log(animals.map((animal) => console.log(animal)), "this is animals on animals page")
 
   return (
     <div className="col-md-12 offset-md-4">
@@ -49,19 +40,19 @@ function MessagesPage({ }) {
       <Card style={{ width: '30rem' }}>
         <CardBody className="col-md-12 ">
           <CardTitle className="font-weight-bold text-center">
-            <h2>Animals</h2>
+            <h2>Messages</h2>
           </CardTitle>
           <CardText>
-            <AnimalSearchForm search={search} />
           </CardText>
   
           <Card>
-            {animals.map(animal => (
-              <Link to={`/animals/${animal.id}`}>
-                <AnimalCard animal={animal}/>
-              </Link>
-            ))}
+          {messageThreads.map(thread => (
+            <Link to={`/messages/${thread.id}`}>
+              {thread.id}
+            </Link>
+          ))}
           </Card>
+          The above can go inside of list group
 
         </CardBody>
       </Card>
@@ -70,6 +61,13 @@ function MessagesPage({ }) {
   );
 }
 
+//           <Card>
+// {messageThreads.map(thread => (
+//   <Link to={`/messages/${thread.id}`}>
+//     <MessageThread />
+//   </Link>
+// ))}
+// </Card>
 // The above can go inside of list group
 
-export default Message sPage;
+export default MessagesPage;

@@ -12,14 +12,11 @@ import { Navbar, Nav,  Collapse,
 import UserContext from "./UserContext";
 
 
-function NavBar() {
+function NavBar({ logout }) {
 
   const user = useContext(UserContext)
 
-  console.log(user, "this is user from usercontext in navbar")
-
-  if (user.user == undefined){
-    console.log("this is with username undefined")
+  if (user.username == undefined){
 
   return (
     <div>
@@ -30,17 +27,14 @@ function NavBar() {
           <NavItem>
             <NavLink to="/login">Login</NavLink>            
           </NavItem>
-          <NavItem>
-            <NavLink to="/register">Register</NavLink>            
-          </NavItem>
         </Nav>
       </Navbar>
     </div>
   );}
 
 
-
-  else if (user.user == "test"){
+// Need to hardcode that in
+  else if (user.username == "test"){
       return (
     <div>
       <Navbar expand="md">
@@ -59,7 +53,7 @@ function NavBar() {
             <NavLink to="/animals">Animals</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/home">Logout</NavLink>
+            <NavLink to="/" onClick={logout}>Logout</NavLink>
           </NavItem>
           <NavItem>
             <NavLink to="/animals/add">Add Animal</NavLink>
@@ -84,7 +78,7 @@ function NavBar() {
   
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink to="/companies">Companies</NavLink>            
+              <NavLink to="/companies">Companies IF HITTING THIS ROUTE ITS A USERNAME OR SMTH ERROR</NavLink>            
             </NavItem>
             <NavItem>
               <NavLink to="/jobs">Jobs</NavLink>            
@@ -99,6 +93,8 @@ function NavBar() {
         </Navbar>
       </div>
     );
+
+    // I need to take out the else block above and replace it with an error. if the uname isnt dina or undefined its a breach
 
   }
 
