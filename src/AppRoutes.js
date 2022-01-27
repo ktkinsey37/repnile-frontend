@@ -10,6 +10,7 @@ import ItemsPage from "./ItemComponents/ItemsPage";
 import Item from "./ItemComponents/Item";
 import Animal from "./AnimalComponents/Animal";
 import LoginForm from "./AdminRoutes/LoginForm";
+import UserMessageSender from "./MessagesComponents/UserMessageSender"
 import MessageThread from "./MessagesComponents/MessageThread";
 import { Route, Routes } from "react-router-dom";
 import UserContext from "./UserContext";
@@ -29,6 +30,7 @@ function AppRoutes({login, logout}) {
             <Routes>
                 <Route exact path="/" element={<HomePage />}/>
                 <Route exact path="/messages" element={<MessagesPage />}/>
+                <Route exact path="/messages/send" element={<UserMessageSender />}/>
                 <Route exact path="/messages/:id" cantFind="/messages" element={<MessageThread />}/>
                 <Route exact path="/animals" element={<AnimalsPage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>

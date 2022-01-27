@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import RepnileApi from "../api";
+import useLocalStorage from '../hooks/useLocalStorage';
+import { v4 as uuid } from 'uuid';
+
 
 /** Form for creating a new item to add to a list.
  *
@@ -8,14 +12,32 @@ import React, { useState } from "react";
  */
 
 const MessageSender = () => {
-  const INITIAL_STATE = {message: ""};
+  const INITIAL_STATE = {messageText: ""};
   const [formData, setFormData] = useState(INITIAL_STATE);
+  const [msgId, setMsgId] = useLocalStorage("msgId", undefined);
+  
 
   /** Send {name, quantity} to parent
    *    & clear form. */
 
-  const handleSubmit = evt => {
+  async function handleSubmit(evt) {
     evt.preventDefault();
+
+    if (msgId === undefined){
+      // Then a message hasn't been sent yet, so create an ID
+      let newMsgId = uuid();
+      setMsgId(newMsgId);
+    }
+
+    // Need to fix that this aint refresing enough to send it through
+
+
+    // Need to set user in local storage and then just get them out, create this when
+
+    formData.sender = msgId
+    formData.recipient = "dina"
+    console.log(formData, "this is formdata before a message sends from user sender")
+    let result = await RepnileApi.postMessage(formData);
     // login(formData);
     // Needs to send message to db, and update message sent... can just post message tomessages/id?
     setFormData(INITIAL_STATE);
@@ -35,31 +57,18 @@ const MessageSender = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
+      <label htmlFor="messageText">Message:</label>
       <input
-        id="username"
-        name="username"
-        value={formData.username}
+        id="messageText"
+        name="messageText"
+        value={formData.messageText}
         onChange={handleChange}
-        placeholder="Username"
+        placeholder="Message Text"
       />
       <br/>
-
-      <label htmlFor="password">Password:</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        value={formData.password}
-        onChange={handleChange}
-        placeholder="Minimum 5 characters"
-      />
-      <br/>
-
-
-      <button>Login</button>
+      <button>Send Message</button>
     </form>
   );
 };
 
-export default LoginForm;
+export default MessageSender;

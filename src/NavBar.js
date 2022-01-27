@@ -47,6 +47,9 @@ function NavBar({ logout }) {
             <NavLink to="/messages">Messages</NavLink>            
           </NavItem>
           <NavItem>
+            <NavLink to="/messages/send">User Message Sender</NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink to="/items">Items</NavLink>            
           </NavItem>
           <NavItem>
