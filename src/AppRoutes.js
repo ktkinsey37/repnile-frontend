@@ -30,7 +30,6 @@ function AppRoutes({login, logout}) {
             <Routes>
                 <Route exact path="/" element={<HomePage />}/>
                 <Route exact path="/messages" element={<MessagesPage />}/>
-                <Route exact path="/messages/send" element={<UserMessageSender />}/>
                 <Route exact path="/messages/:id" cantFind="/messages" element={<MessageThread />}/>
                 <Route exact path="/animals" element={<AnimalsPage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
@@ -52,6 +51,7 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/login" element={<LoginForm login={login}/>}/>
                 <Route exact path="/animals" element={<AnimalsPage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
+                <Route exact path="/messages/send" element={<UserMessageSender />}/>
                 <Route exact path="/item" element={<ItemsPage />}/>
                 <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>

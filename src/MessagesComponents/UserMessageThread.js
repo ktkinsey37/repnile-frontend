@@ -13,8 +13,8 @@ import Message from "./Message"
 import OwnerMessageSender from "./OwnerMessageSender";
 
 
-function MessageThread() {
-    const { id } = useParams();
+function UserMessageThread({ id }) {
+    // const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [messageThread, setMessageThread] = useState([]);
     const [messages, setMessages] = useState([])
@@ -56,9 +56,8 @@ function MessageThread() {
             </CardText>
           </CardBody>
         </Card>
-        <OwnerMessageSender messageThread={messageThread}/>
       </section>
     );
   }
   
-  export default MessageThread;
+  export default UserMessageThread;

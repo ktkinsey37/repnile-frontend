@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RepnileApi from "../api";
-import useLocalStorage from './hooks/useLocalStorage';
+import useLocalStorage from '../hooks/useLocalStorage';
 import { v4 as uuid } from 'uuid';
 
 
@@ -11,32 +11,28 @@ import { v4 as uuid } from 'uuid';
  *
  */
 
-const MessageSender = () => {
-  const INITIAL_STATE = {message: ""};
+const OwnerMessageSender = ({ messageThread }) => {
+  const INITIAL_STATE = {messageText: ""};
   const [formData, setFormData] = useState(INITIAL_STATE);
-  const [msgId, setMsgId] = useLocalStorage("msgId", undefined);
+//   const [msgId, setMsgId] = useLocalStorage("msgId", undefined);
   
 
   /** Send {name, quantity} to parent
    *    & clear form. */
 
-  const handleSubmit = evt => {
+  async function handleSubmit(evt) {
     evt.preventDefault();
 
     // if (msgId === undefined){
     //   // Then a message hasn't been sent yet, so create an ID
-    //   msgId = uuid();
-    //   setMsgId(msgId);
+    //   let newMsgId = uuid();
+    //   setMsgId(newMsgId);
     // }
-    // Not needed for owner
 
-
-    // Need to set user in local storage and then just get them out, create this when
-
+    formData.recipient = messageThread.uuid
     formData.sender = "dina"
-    // This is where I will need to have their userid
-    formData.recipient = "dina"
-    await RepnileApi.postMessage(formData);
+    console.log(formData, "this is formdata before a message sends from owner sender")
+    let result = await RepnileApi.postMessage(formData);
     // login(formData);
     // Needs to send message to db, and update message sent... can just post message tomessages/id?
     setFormData(INITIAL_STATE);
@@ -70,4 +66,4 @@ const MessageSender = () => {
   );
 };
 
-export default MessageSender;
+export default OwnerMessageSender;

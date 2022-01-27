@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RepnileApi from "../api";
 import useLocalStorage from '../hooks/useLocalStorage';
 import { v4 as uuid } from 'uuid';
+import UserMessageThread from "./UserMessageThread";
 
 
 /** Form for creating a new item to add to a list.
@@ -56,18 +57,22 @@ const MessageSender = () => {
   /** render form */
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="messageText">Message:</label>
-      <input
-        id="messageText"
-        name="messageText"
-        value={formData.messageText}
-        onChange={handleChange}
-        placeholder="Message Text"
-      />
-      <br/>
-      <button>Send Message</button>
-    </form>
+    <div>
+      <UserMessageThread id={msgId}/>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="messageText">Message:</label>
+        <input
+          id="messageText"
+          name="messageText"
+          value={formData.messageText}
+          onChange={handleChange}
+          placeholder="Message Text"
+        />
+        <br/>
+        <button>Send Message</button>
+      </form>
+    </div>
+
   );
 };
 

@@ -18,6 +18,7 @@ function NavBar({ logout }) {
 
   if (user.username == undefined){
 
+    // Need to remove the login bar later and just have it as a route dina can hit
   return (
     <div>
       <Navbar expand="md">
@@ -26,6 +27,15 @@ function NavBar({ logout }) {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink to="/login">Login</NavLink>            
+          </NavItem>
+          <NavItem>
+            <NavLink to="/messages/send">Contact Us</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/items">Items</NavLink>            
+          </NavItem>
+          <NavItem>
+            <NavLink to="/animals">Animals</NavLink>
           </NavItem>
         </Nav>
       </Navbar>
@@ -45,9 +55,6 @@ function NavBar({ logout }) {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink to="/messages">Messages</NavLink>            
-          </NavItem>
-          <NavItem>
-            <NavLink to="/messages/send">User Message Sender</NavLink>
           </NavItem>
           <NavItem>
             <NavLink to="/items">Items</NavLink>            
