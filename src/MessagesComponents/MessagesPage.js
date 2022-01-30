@@ -27,6 +27,12 @@ function MessagesPage() {
       }
       getMessageThreads()
     }, []);
+
+    async function handleRemove(id) {
+      await RepnileApi.deleteMessageThread(id)
+      console.log(id);
+      // remove item
+    }
   
     console.log(messageThreads, "this is messagethreads before it runs in react")
     if (isLoading) {
@@ -47,9 +53,12 @@ function MessagesPage() {
   
           <Card>
           {messageThreads.map(thread => (
-            <Link to={`/messages/${thread.id}`}>
-              {thread.id}
-            </Link>
+            <div>
+              <button onClick={() => handleRemove(thread.id)}>x</button>
+                <Link to={`/messages/${thread.id}`}>
+                  {thread.id}
+                </Link>
+            </div>
           ))}
           </Card>
           The above can go inside of list group

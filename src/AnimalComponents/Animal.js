@@ -40,6 +40,15 @@ function Animal() {
           <CardBody>
             <CardTitle className="font-weight-bold text-center">
               {animal.name}
+              <br/>
+              Weight: {animal.weight} grams
+              <br/>
+              Coloration Pattern: {animal.colorationPattern}
+              <br/>
+              Primary Color: {animal.primaryColor}
+
+              <img src={animal.imgUrl} alt={animal.name} width="500" height="600"/>
+
               
             </CardTitle>
             <CardText>

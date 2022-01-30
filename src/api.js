@@ -117,6 +117,11 @@ class RepnileApi {
     let res = await this.request("messages", formData, "post")
   }
 
+  static async deleteMessageThread(uuid){
+    let res = await this.request(`messages/${uuid}`, uuid, "delete")
+    console.log(res, "this is res in deletemessagethread in the repnile.api")
+  }
+
 
 
 //   static async registerUser(formData){

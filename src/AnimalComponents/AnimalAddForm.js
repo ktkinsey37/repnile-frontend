@@ -178,7 +178,9 @@ function AddAnimalForm() {
                 <div className="form-group">
                 <label>Picture</label>
                 <input
+                    type="file"
                     name="imgUrl"
+                    accept="image/png, image/jpeg"
                     className="form-control"
                     value={formData.imgUrl}
                     onChange={handleChange}
