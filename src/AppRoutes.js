@@ -14,6 +14,7 @@ import UserMessageSender from "./MessagesComponents/UserMessageSender"
 import MessageThread from "./MessagesComponents/MessageThread";
 import { Route, Routes } from "react-router-dom";
 import UserContext from "./UserContext";
+import AnimalEditForm from "./AnimalComponents/AnimalEditForm";
 
 
 function AppRoutes({login, logout}) {
@@ -33,6 +34,7 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/messages/:id" cantFind="/messages" element={<MessageThread />}/>
                 <Route exact path="/animals" element={<AnimalsPage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
+                <Route exact path="/animals/:id/edit" cantFind="/animals" element={<AnimalEditForm />}/>
                 <Route exact path="/animals/add" element={<AnimalAddForm />}/>
                 <Route exact path="/item" element={<ItemsPage />}/>
                 <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>

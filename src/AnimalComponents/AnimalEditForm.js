@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
 // import Alert from "../common/Alert";
 import RepnileApi from "../api";
 
@@ -14,7 +15,8 @@ import RepnileApi from "../api";
  * Routed as /signup
  */
 
-function AddAnimalForm() {
+function AnimalEditForm() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -32,7 +34,7 @@ function AddAnimalForm() {
   // const [forSale, setForSale] = useState(true)
 
   console.debug(
-      "AddAnimalForm",
+      "AnimalEditForm",
       "formData=", formData,
       "formErrors=", formErrors,
   );
@@ -44,8 +46,8 @@ function AddAnimalForm() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await RepnileApi.addAnimal(formData);
-    console.log(result, "this is result in handlesubmit of addanimalform")
+    let result = await RepnileApi.updateAnimal(formData, id);
+    console.log(result, "this is result in handlesubmit of AnimalEditForm")
     if (result) {
       navigate("/animals");
     } else {
@@ -68,9 +70,9 @@ function AddAnimalForm() {
   }
 
   return (
-      <div className="AddAnimalForm">
+      <div className="AnimalEditForm">
         <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-          <h2 className="mb-3">Add Animal</h2>
+          <h2 className="mb-3">Edit Animal</h2>
           <div className="card">
             <div className="card-body">
               <form onSubmit={handleSubmit}>
@@ -210,4 +212,4 @@ function AddAnimalForm() {
 // }
 // THIS GOES ABOVE SUBMIT BUTTON
 
-export default AddAnimalForm;
+export default AnimalEditForm;

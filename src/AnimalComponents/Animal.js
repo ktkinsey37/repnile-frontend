@@ -9,6 +9,8 @@ import RepnileApi from "../api";
 import AnimalCard from "./AnimalCard";
 import { Redirect, useParams } from "react-router-dom";
 import UserContext from "../UserContext";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -48,6 +50,9 @@ function Animal() {
               Primary Color: {animal.primaryColor}
 
               <img src={animal.imgUrl} alt={animal.name} width="500" height="600"/>
+
+              <Link to={`/animals/${animal.id}/edit`}>Edit
+              </Link>
 
               
             </CardTitle>

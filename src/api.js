@@ -84,6 +84,11 @@ class RepnileApi {
     return res;
   }
 
+  static async updateAnimal(formData, id){
+    let res = await this.request(`animals/${id}`, formData, "patch")
+    return res;
+  }
+
   static async addItem(formData){
     return;
   }
