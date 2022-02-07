@@ -55,7 +55,6 @@ function AddAnimalForm() {
     Object.entries(formData).forEach(([k, v]) => {
       newFormData.append(k, v);
     });
-    console.log(newFormData);
     newFormData.append("imgUrl", file);
     let result = await RepnileApi.addAnimal(newFormData);
     console.log(result, "this is result in handlesubmit of addanimalform");
