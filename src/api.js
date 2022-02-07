@@ -85,6 +85,8 @@ class RepnileApi {
   }
 
   static async updateAnimal(formData, id){
+    formData.weight = String(formData.weight)
+    console.log(formData, "this is formdata in updateanimal")
     let res = await this.request(`animals/${id}`, formData, "patch")
     return res;
   }

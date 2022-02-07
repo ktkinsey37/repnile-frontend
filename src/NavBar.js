@@ -28,6 +28,7 @@ function NavBar({ logout }) {
           <NavItem>
             <NavLink to="/login">Login</NavLink>            
           </NavItem>
+          &nbsp;
           <NavItem>
             <NavLink to="/messages/send">Contact Us</NavLink>
           </NavItem>
@@ -56,15 +57,19 @@ function NavBar({ logout }) {
           <NavItem>
             <NavLink to="/messages">Messages</NavLink>            
           </NavItem>
+          &nbsp;
           <NavItem>
             <NavLink to="/items">Items</NavLink>            
           </NavItem>
+          &nbsp;
           <NavItem>
             <NavLink to="/animals">Animals</NavLink>
           </NavItem>
+          &nbsp;
           <NavItem>
             <NavLink to="/" onClick={logout}>Logout</NavLink>
           </NavItem>
+          &nbsp;
           <NavItem>
             <NavLink to="/animals/add">Add Animal</NavLink>
           </NavItem>

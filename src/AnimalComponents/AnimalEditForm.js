@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 // import Alert from "../common/Alert";
@@ -38,6 +38,27 @@ function AnimalEditForm() {
       "formData=", formData,
       "formErrors=", formErrors,
   );
+
+  useEffect(() => {
+    async function getAnimal() {
+      let animal = await RepnileApi.getAnimal(id);
+      console.log(animal, "this is animal in getAnimal on load at edit animal form")
+      const INITIAL_STATE = {
+      name: animal.name,
+      species: animal.species,
+      birthDate: animal.birth_date,
+      weight: animal.weight,
+      sex: animal.sex,
+      colorationPattern: animal.colorationPattern,
+      primaryColor: animal.primaryColor,
+      secondaryColor: animal.secondaryColor,
+      price: animal.price,
+      forSale: animal.forSale};
+      setFormData(INITIAL_STATE)
+      // setIsLoading(false);
+    }
+    getAnimal()
+  }, []);
 
   /** Handle form submit:
    *
@@ -84,6 +105,7 @@ function AnimalEditForm() {
                       className="form-control"
                       value={formData.name}
                       onChange={handleChange}
+                      placeholder={formData.name}
                   />
                 </div>
 

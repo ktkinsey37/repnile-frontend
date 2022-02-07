@@ -14,21 +14,22 @@ import RepnileApi from "../api";
  * Routed as /signup
  */
 
-function AddAnimalForm() {
+function AddItemForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     species: "",
-    age: "",
+    birthDate: "",
     weight: "",
     sex: "",
     colorationPattern: "",
     primaryColor: "",
     secondaryColor: "",
     price: "",
-    forSale: ""
+    forSale: true
   });
   const [formErrors, setFormErrors] = useState([]);
+  // const [forSale, setForSale] = useState(true)
 
   console.debug(
       "AddAnimalForm",
@@ -44,7 +45,8 @@ function AddAnimalForm() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     let result = await RepnileApi.addAnimal(formData);
-    if (result.success) {
+    console.log(result, "this is result in handlesubmit of addanimalform")
+    if (result) {
       navigate("/animals");
     } else {
       setFormErrors(result.errors);
@@ -53,14 +55,22 @@ function AddAnimalForm() {
 
   /** Update form data field */
   function handleChange(evt) {
-    const { name, value } = evt.target;
+    let { name, value } = evt.target;
+    console.log(evt.target, "this is evt target")
+    if (evt.target.type == "checkbox"){
+      evt.target.checked = !evt.target.checked
+
+      value =  !evt.target.checked
+      console.log(evt.target.checked, "this is evt.tgt.check")
+      console.log(value, "this is value in hitting the check")
+    }
     setFormData(data => ({ ...data, [name]: value }));
   }
 
   return (
       <div className="AddAnimalForm">
         <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-          <h2 className="mb-3">Sign Up</h2>
+          <h2 className="mb-3">Add Animal</h2>
           <div className="card">
             <div className="card-body">
               <form onSubmit={handleSubmit}>
@@ -86,11 +96,11 @@ function AddAnimalForm() {
                 </div>
 
                 <div className="form-group">
-                  <label>Age</label>
+                  <label>Birth Date</label>
                   <input
-                      name="age"
+                      name="birthDate"
                       className="form-control"
-                      value={formData.age}
+                      value={formData.birthDate}
                       onChange={handleChange}
                   />
                 </div>
@@ -156,19 +166,21 @@ function AddAnimalForm() {
                 </div>
 
                 <div className="form-group">
-                <label>For Sale</label>
+                <label>For Sale
                 <input
                     name="forSale"
-                    className="form-control"
-                    value={formData.forSale}
+                    type="checkbox"
+                    checked={formData.forSale}
                     onChange={handleChange}
-                />
+                /></label>
                 </div>
 
                 <div className="form-group">
                 <label>Picture</label>
                 <input
+                    type="file"
                     name="imgUrl"
+                    accept="image/png, image/jpeg"
                     className="form-control"
                     value={formData.imgUrl}
                     onChange={handleChange}
@@ -198,4 +210,4 @@ function AddAnimalForm() {
 // }
 // THIS GOES ABOVE SUBMIT BUTTON
 
-export default AddAnimalForm;
+export default AddItemForm;
