@@ -31,6 +31,8 @@ function Animal() {
       }
       getAnimal()
     }, [id]);
+
+    const forSale = animal.forSale ? "This critter is for sale!" : "This critter is currently unavailable"
   
     if (isLoading) {
       return <p>Loading &hellip;</p>;
@@ -43,13 +45,26 @@ function Animal() {
             <CardTitle className="font-weight-bold text-center">
               {animal.name}
               <br/>
+              {forSale}
+              <br/>
               Weight: {animal.weight} grams
               <br/>
               Coloration Pattern: {animal.colorationPattern}
               <br/>
               Primary Color: {animal.primaryColor}
-
+              <br/>
+              Secondary Color: {animal.secondaryColor}
+              <br/>
+              Birth Date: {animal.birth_date}
+              <br/>
+              Price: ${animal.price}
+              <br/>
+              Sex: {animal.sex}
+              <br/>
+              Species: {animal.species}
+              <br/>
               <img src={animal.imgUrl} alt={animal.name} width="500" height="600"/>
+              <br/>
 
               <Link to={`/animals/${animal.id}/edit`}>Edit
               </Link>
