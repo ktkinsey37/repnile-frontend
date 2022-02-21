@@ -195,7 +195,6 @@ function AddAnimalForm() {
                   name="imgUrl"
                   accept="image/png, image/jpeg"
                   className="form-control"
-                  value={formData.imgUrl}
                   onChange={handleOnUploadFile}
                 />
               </div>

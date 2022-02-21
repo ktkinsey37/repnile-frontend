@@ -44,7 +44,9 @@ class RepnileApi {
   static addToken(token) {
     this.token = token;
   }
-
+  static getImage(imageName) {
+    return BASE_URL + "/" + imageName;
+  }
   static async loginUser(formData) {
     let res = await this.request("auth/token", formData, "post");
     const returnVal = { username: formData.username, token: res.token };
