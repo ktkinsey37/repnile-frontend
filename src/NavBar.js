@@ -14,6 +14,10 @@ import UserContext from "./UserContext";
 
 function NavBar({ logout }) {
 
+//   <NavItem>
+//   <NavLink to="/items">Items</NavLink>            
+// </NavItem>
+
   const user = useContext(UserContext)
 
   if (user.username == undefined){
@@ -31,9 +35,6 @@ function NavBar({ logout }) {
           &nbsp;
           <NavItem>
             <NavLink to="/messages/send">Contact Us</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/items">Items</NavLink>            
           </NavItem>
           <NavItem>
             <NavLink to="/animals">Animals</NavLink>
@@ -58,9 +59,6 @@ function NavBar({ logout }) {
             <NavLink to="/messages">Messages</NavLink>            
           </NavItem>
           &nbsp;
-          <NavItem>
-            <NavLink to="/items">Items</NavLink>            
-          </NavItem>
           &nbsp;
           <NavItem>
             <NavLink to="/animals">Animals</NavLink>

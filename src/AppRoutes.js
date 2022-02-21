@@ -23,6 +23,9 @@ function AppRoutes({login, logout}) {
 
     console.log(user, "this is user in approutes")
 
+    //                 <Route exact path="/item" element={<ItemsPage />}/>
+    // <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
+
     if (user.username == "test"){
         return (
             <BrowserRouter>
@@ -36,8 +39,7 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
                 <Route exact path="/animals/:id/edit" cantFind="/animals" element={<AnimalEditForm />}/>
                 <Route exact path="/animals/add" element={<AnimalAddForm />}/>
-                <Route exact path="/item" element={<ItemsPage />}/>
-                <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
+
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>
             </Routes>
             </main>
@@ -54,8 +56,6 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/animals" element={<AnimalsPage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
                 <Route exact path="/messages/send" element={<UserMessageSender />}/>
-                <Route exact path="/item" element={<ItemsPage />}/>
-                <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>
             </Routes>
             </main>

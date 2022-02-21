@@ -9,32 +9,29 @@ import {
   ListGroupItem
 } from "reactstrap";
 import RepnileApi from "../api"
-import AnimalSearchForm from "./AnimalSearchForm";
-import AnimalCard from "./AnimalCard";
 
 
 
 function ItemsPage({ }) {
 
     const [isLoading, setIsLoading] = useState(true);
-    const [animals, setAnimals] = useState([]);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
-      async function getAnimals() {
-        let animals = await RepnileApi.getAllAnimals();
-        console.log(typeof(animals), "animals in the useeffect")
-        setAnimals(animals)
+      async function getItems() {
+        let items = await RepnileApi.getAllItems();
+        console.log(typeof(items), "animals in the useeffect")
+        setAnimals(items)
         setIsLoading(false);
       }
-      getAnimals()
+      getItems()
     }, []);
 
     async function search(params) {
         setIsLoading(true)
         console.log(params, "params in search isnide animalspage")
-        let animals = await RepnileApi.getAnimalsQuery(params);
-        console.log(animals, "animals in search")
-        setAnimals(animals);
+        let items = await RepnileApi.getItemsQuery(params);
+        setItems(items);
         setIsLoading(false);
       }
   
