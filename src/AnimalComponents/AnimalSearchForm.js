@@ -98,6 +98,7 @@ const AnimalSearchForm = ({ search }) => {
       placeholder="Price"
       />
 
+      <br/>
       <button>Search</button>
     </form>
   );

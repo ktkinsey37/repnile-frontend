@@ -67,13 +67,6 @@ function NavBar({ logout }) {
           &nbsp;
           &nbsp;
           <NavItem>
-            <NavLink to="/" onClick={logout}>Logout</NavLink>
-          </NavItem>
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          <NavItem>
             <NavLink to="/animals/add">Add Animal</NavLink>
           </NavItem>
           &nbsp;
@@ -88,6 +81,13 @@ function NavBar({ logout }) {
           &nbsp;
           &nbsp;
           <NavItem>
+            <NavLink to="/events">Upcoming Events</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
             <NavLink to="/terms_of_service">Terms of Service</NavLink>            
           </NavItem>
           &nbsp;
@@ -96,6 +96,13 @@ function NavBar({ logout }) {
           &nbsp;
           <NavItem>
             <NavLink to="/about">About Us</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
+            <NavLink to="/" onClick={logout}>Logout</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

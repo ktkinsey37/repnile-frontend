@@ -96,6 +96,7 @@ class RepnileApi {
   }
 
   static async addItem(formData) {
+    let res = await this.request("items", formData, "post");
     return;
   }
 
@@ -126,11 +127,28 @@ class RepnileApi {
 
   static async postMessage(formData) {
     let res = await this.request("messages", formData, "post");
+    return;
   }
 
   static async deleteMessageThread(uuid) {
     let res = await this.request(`messages/${uuid}`, uuid, "delete");
     console.log(res, "this is res in deletemessagethread in the repnile.api");
+  }
+
+  static async addEvent(formData) {
+    let res = await this.request("messages", formData, "post");
+    return;
+  }
+
+  static async getEvent(id) {
+    let res = await this.request(`events/${id}`);
+    return res;
+  }
+
+  static async deleteEvent(id) {
+    let res = await this.request(`events/${id}`, id, "delete");
+    console.log(res, "this is res in deleteevents in the repnile.api");
+    return;
   }
 
   //   static async registerUser(formData){
