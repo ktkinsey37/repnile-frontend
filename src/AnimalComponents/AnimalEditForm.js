@@ -211,7 +211,7 @@ function AnimalEditForm() {
                 />
                 </div>
 
-
+                <br/>
 
                 <button
                     type="submit"

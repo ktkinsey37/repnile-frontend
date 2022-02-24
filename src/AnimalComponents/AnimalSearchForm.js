@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./AnimalSearchForm.css"
+import { Button } from 'reactstrap'
 
 /** Form for creating a new item to add to a list.
  *
@@ -99,7 +101,10 @@ const AnimalSearchForm = ({ search }) => {
       />
 
       <br/>
-      <button>Search</button>
+      <br/>
+      <button className="btn btn-success float-right">Search</button>
+
+
     </form>
   );
 };
