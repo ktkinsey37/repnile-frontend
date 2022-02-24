@@ -73,31 +73,6 @@ const ItemSearchForm = ({ search }) => {
       onChange={handleChange}
       placeholder="Secondary Color"
       />
-
-      <input
-      id="weight"
-      name="weight"
-      value={formData.weight}
-      onChange={handleChange}
-      placeholder="Weight"
-      />
-
-      <input
-      id="age"
-      name="age"
-      value={formData.age}
-      onChange={handleChange}
-      placeholder="Age"
-      />
-
-      <input
-      id="price"
-      name="price"
-      value={formData.price}
-      onChange={handleChange}
-      placeholder="Price"
-      />
-
       <button>Search</button>
     </form>
   );

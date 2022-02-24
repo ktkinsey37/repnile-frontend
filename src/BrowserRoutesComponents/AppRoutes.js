@@ -1,20 +1,22 @@
 import React, {useContext} from "react";
 import { BrowserRouter } from "react-router-dom";
-import HomePage from "./HomePage";
+import HomePage from "../AssortedSinglePages/HomePage";
 // import RepnileApi from "./api"
 import NavBar from "./NavBar";
-import AnimalsPage from "./AnimalComponents/AnimalsPage";
-import AnimalAddForm from "./AnimalComponents/AnimalAddForm";
-import MessagesPage from "./MessagesComponents/MessagesPage";
-import ItemsPage from "./ItemComponents/ItemsPage";
-import Item from "./ItemComponents/Item";
-import Animal from "./AnimalComponents/Animal";
-import LoginForm from "./AdminRoutes/LoginForm";
-import UserMessageSender from "./MessagesComponents/UserMessageSender"
-import MessageThread from "./MessagesComponents/MessageThread";
+import AnimalsPage from "../AnimalComponents/AnimalsPage";
+import AnimalAddForm from "../AnimalComponents/AnimalAddForm";
+import MessagesPage from "../MessagesComponents/MessagesPage";
+import ItemsPage from "../ItemComponents/ItemsPage";
+import Item from "../ItemComponents/Item";
+import Animal from "../AnimalComponents/Animal";
+import LoginForm from "../AdminRoutes/LoginForm";
+import UserMessageSender from "../MessagesComponents/UserMessageSender"
+import MessageThread from "../MessagesComponents/MessageThread";
 import { Route, Routes } from "react-router-dom";
-import UserContext from "./UserContext";
-import AnimalEditForm from "./AnimalComponents/AnimalEditForm";
+import UserContext from "../UserContext";
+import AnimalEditForm from "../AnimalComponents/AnimalEditForm";
+import TermsOfService from "../AssortedSinglePages/TermsOfService";
+import About from "../AssortedSinglePages/About";
 
 
 function AppRoutes({login, logout}) {
@@ -23,8 +25,6 @@ function AppRoutes({login, logout}) {
 
     console.log(user, "this is user in approutes")
 
-    //                 <Route exact path="/item" element={<ItemsPage />}/>
-    // <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
 
     if (user.username == "test"){
         return (
@@ -39,6 +39,10 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
                 <Route exact path="/animals/:id/edit" cantFind="/animals" element={<AnimalEditForm />}/>
                 <Route exact path="/animals/add" element={<AnimalAddForm />}/>
+                <Route exact path="/item" element={<ItemsPage />}/>
+                <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
+                <Route exact path="/terms_of_service" element={<TermsOfService/>}/>
+                <Route exact path="/about" element={<About/>}/>
 
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>
             </Routes>

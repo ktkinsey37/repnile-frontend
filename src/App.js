@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import JoblyApi from "./api"
-import AppRoutes from './AppRoutes';
+import AppRoutes from './BrowserRoutesComponents/AppRoutes';
 import React, { useState, useEffect, createContext } from "react";
 import UserContext from './UserContext';
 import useLocalStorage from './hooks/useLocalStorage';

@@ -1,0 +1,13 @@
+.navbar2 {
+    background-color: black;
+}
+
+.navbar2 a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar2 a:hover {
+    color: rgb(79, 192, 79);
+    text-decoration: underline;
+}

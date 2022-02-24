@@ -111,7 +111,7 @@ class RepnileApi {
 
   static async getAItemsQuery(term) {
     let res = await this.request("items", term);
-    return res.animals;
+    return res.items;
   }
 
   static async getAllMessageThreads() {

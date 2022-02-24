@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-// import "./NavBar.css";
+import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav,  Collapse,
     NavbarToggler,
@@ -9,14 +9,11 @@ import { Navbar, Nav,  Collapse,
     DropdownToggle,
     DropdownMenu,
     DropdownItem} from "reactstrap";
-import UserContext from "./UserContext";
+import UserContext from "../UserContext";
 
 
 function NavBar({ logout }) {
 
-//   <NavItem>
-//   <NavLink to="/items">Items</NavLink>            
-// </NavItem>
 
   const user = useContext(UserContext)
 
@@ -39,6 +36,9 @@ function NavBar({ logout }) {
           <NavItem>
             <NavLink to="/animals">Animals</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink to="/items">Items</NavLink>            
+          </NavItem>
         </Nav>
       </Navbar>
     </div>
@@ -49,27 +49,53 @@ function NavBar({ logout }) {
   else if (user.username == "test"){
       return (
     <div>
-      <Navbar expand="md">
+      <Navbar expand="md navbar2 justify-content-center">
         <NavbarBrand href="/">Repnile</NavbarBrand>
-
-
-        ADMIN ROUTE
-        <Nav className="ml-auto" navbar>
+        <Nav className="m-auto" navbar>
           <NavItem>
             <NavLink to="/messages">Messages</NavLink>            
           </NavItem>
+          &nbsp;
+          &nbsp;
           &nbsp;
           &nbsp;
           <NavItem>
             <NavLink to="/animals">Animals</NavLink>
           </NavItem>
           &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
           <NavItem>
             <NavLink to="/" onClick={logout}>Logout</NavLink>
           </NavItem>
           &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
           <NavItem>
             <NavLink to="/animals/add">Add Animal</NavLink>
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
+            <NavLink to="/items">Items</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
+            <NavLink to="/terms_of_service">Terms of Service</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
+            <NavLink to="/about">About Us</NavLink>            
           </NavItem>
         </Nav>
       </Navbar>

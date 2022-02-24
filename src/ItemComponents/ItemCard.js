@@ -13,14 +13,12 @@ import { Redirect, useParams } from "react-router-dom";
 function ItemCard({ item }) {
 
     const [isLoading, setIsLoading] = useState(false);
-    // const [company, setCompany] = useState([]);
-    // const [jobs, setJobs] = useState([]);
+    // const [item, setItem] = useState([]);
 
 
   
     // useEffect(function getCompanyAndJobs() {
     //   async function getCompany() {
-    //     let companyRes = await JoblyApi.getCompany(company);
     //     setJobs(companyRes.jobs)
     //     setCompany(company)
     //     setIsLoading(false);
@@ -30,9 +28,9 @@ function ItemCard({ item }) {
 
     let logoUrl
 
-    // if (animal.imgUrl != null){
-    //     logoUrl = `http://joelburton-jobly.surge.sh/${company.logoUrl}`
-    // }
+    if (item.imgUrl != null){
+        logoUrl = `http://`
+    }
     
   
     if (isLoading) {
@@ -40,7 +38,7 @@ function ItemCard({ item }) {
     }
   
     return (
-      <section className="col-md-12" className="AnimalCard">
+      <section className="col-md-12" className="ItemCard">
         <Card>
           <CardBody className="col-md-12 ">
           <img src={logoUrl} className="position-absolute top-5 end-5 float-right ml-5"/>
