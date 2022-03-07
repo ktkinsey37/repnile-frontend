@@ -3,11 +3,11 @@
 }
 
 .navbar2 a {
-    color: white;
+    color: rgb(245, 242, 220);
     text-decoration: none;
 }
 
 .navbar2 a:hover {
-    color: rgb(79, 192, 79);
+    color: rgb(45, 119, 45);
     text-decoration: underline;
 }

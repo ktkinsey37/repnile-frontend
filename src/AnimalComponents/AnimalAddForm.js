@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import Alert from "../common/Alert";
 import RepnileApi from "../api";
+import "./AnimalAddForm.css"
 
 /** Signup form.
  *

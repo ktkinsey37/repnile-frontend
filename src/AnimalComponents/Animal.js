@@ -5,12 +5,13 @@ import AnimalCard from "./AnimalCard";
 import { Redirect, useParams } from "react-router-dom";
 import UserContext from "../UserContext";
 import { Link } from "react-router-dom";
+import "./Animal.css"
 
 function Animal() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [animal, setAnimal] = useState([]);
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
 
   useEffect(
     function getAnimalOnLoad() {
@@ -35,7 +36,7 @@ function Animal() {
   }
 
   return (
-    <section className="col-md-4">
+    <div className="col-md-12 animal">
       <Card>
         <CardBody>
           <CardTitle className="font-weight-bold text-center">
@@ -62,8 +63,8 @@ function Animal() {
             <img
               src={RepnileApi.getImage(animal.imgUrl)}
               alt={animal.name}
-              width="500"
-              height="600"
+              width="50%"
+              height="50%"
             />
             <br />
             <Link to={`/animals/${animal.id}/edit`}>Edit</Link>
@@ -71,7 +72,7 @@ function Animal() {
           <CardText></CardText>
         </CardBody>
       </Card>
-    </section>
+    </div>
   );
 }
 

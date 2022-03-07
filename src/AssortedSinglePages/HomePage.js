@@ -1,13 +1,19 @@
 import React, { useState } from "react";
+import image0 from "../Images/image2.jpeg"
+import "./HomePage.css"
 
 const HomePage = () => {
 
  
     return (
-    <div>
-      <div class="container text-center">
-        <h1 class="mb-4 font-weight-bold">Repnile Homepage</h1>
-        <p>All your reptile needs in one convenient place</p>
+    <div className="homePageMain">
+      <div className="homepageContainer text-center homepage">
+        <img className="homeImage" src={image0}>
+        </img>
+        <div class="centered">
+          <h1 class="font-weight-bold">Repnile Exotics</h1>
+          <h4>All your reptile needs in one convenient place</h4>
+        </div>
       </div>
     </div>
   );
