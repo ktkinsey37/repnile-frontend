@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   Card,
@@ -6,58 +6,65 @@ import {
   CardTitle,
   CardText,
   ListGroup,
-  ListGroupItem
+  ListGroupItem,
 } from "reactstrap";
-import RepnileApi from "../api"
-import Message from "./Message"
+import RepnileApi from "../api";
+import Message from "./Message";
 import OwnerMessageSender from "./OwnerMessageSender";
 
-
 function UserMessageThread({ id }) {
-    // const { id } = useParams();
-    const [isLoading, setIsLoading] = useState(true);
-    const [messageThread, setMessageThread] = useState([]);
-    const [messages, setMessages] = useState([])
+  // const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const [messageThread, setMessageThread] = useState([]);
+  const [messages, setMessages] = useState([]);
 
-  
-    useEffect(function getMessageThreadOnLoad() {
+  useEffect(
+    function getMessageThreadOnLoad() {
       async function getMessageThread() {
-        console.log(id, "id param")
+        console.log(id, "id param");
+        if (!id) {
+          return;
+        }
         let messageThread = await RepnileApi.getMessageThread(id);
         // should i do parents here?
-        console.log(messageThread, "this is msgthread before its loaded up")
+        console.log(messageThread, "this is msgthread before its loaded up");
 
-        setMessageThread(messageThread.messageThread)
-        setMessages(messageThread.messageThread.messages)
+        console.log(
+          messageThread,
+          messageThread?.messageThread?.messages,
+          messageThread?.messageThread
+        );
+        setMessageThread(messageThread?.messageThread);
+        setMessages(messageThread?.messageThread?.messages || []);
         setIsLoading(false);
       }
-      getMessageThread()
-    }, [id]);
-  
-    if (isLoading) {
-      return <p>Loading &hellip;</p>;
-    }
+      getMessageThread();
+    },
+    [id]
+  );
 
-  
-    return (
-      <section className="col-md-4">
-        <Card>
-          <CardBody>
-            <CardTitle className="font-weight-bold text-center">
-           
-              
-            </CardTitle>
-            <CardText>   
-              Message Thread Id: {messageThread.uuid} <br/>
-              Created at:{messageThread.createdAt} <br/>
-              Updated at: {messageThread.updatedAt} <br/>
-              Last Checked at:{messageThread.lastCheckedAt}
-                {messages.map(message => <Message message={message}/>)}
-            </CardText>
-          </CardBody>
-        </Card>
-      </section>
-    );
+  if (isLoading) {
+    return <p>Loading &hellip;</p>;
   }
-  
-  export default UserMessageThread;
+
+  return (
+    <section className="col-md-4">
+      <Card>
+        <CardBody>
+          <CardTitle className="font-weight-bold text-center"></CardTitle>
+          <CardText>
+            Message Thread Id: {messageThread.uuid} <br />
+            Created at:{messageThread.createdAt} <br />
+            Updated at: {messageThread.updatedAt} <br />
+            Last Checked at:{messageThread.lastCheckedAt}
+            {messages.map((message) => (
+              <Message message={message} />
+            ))}
+          </CardText>
+        </CardBody>
+      </Card>
+    </section>
+  );
+}
+
+export default UserMessageThread;

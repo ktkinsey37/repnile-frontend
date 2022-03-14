@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import RepnileApi from "../api";
-import useLocalStorage from '../hooks/useLocalStorage';
-import { v4 as uuid } from 'uuid';
+import useLocalStorage from "../hooks/useLocalStorage";
+import { v4 as uuid } from "uuid";
 import UserMessageThread from "./UserMessageThread";
-
 
 /** Form for creating a new item to add to a list.
  *
@@ -13,44 +12,48 @@ import UserMessageThread from "./UserMessageThread";
  */
 
 const MessageSender = () => {
-  const INITIAL_STATE = {messageText: ""};
+  const INITIAL_STATE = { messageText: "" };
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [msgId, setMsgId] = useLocalStorage("msgId", undefined);
-  
 
   /** Send {name, quantity} to parent
    *    & clear form. */
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-
-    if (msgId === undefined){
+    let newMsgId = msgId;
+    if (newMsgId === undefined) {
       // Then a message hasn't been sent yet, so create an ID
-      let newMsgId = uuid();
+      newMsgId = uuid();
       setMsgId(newMsgId);
     }
 
     // Need to fix that this aint refresing enough to send it through
 
-
     // Need to set user in local storage and then just get them out, create this when
-
-    formData.sender = msgId
-    formData.recipient = "dina"
-    console.log(formData, "this is formdata before a message sends from user sender")
-    let result = await RepnileApi.postMessage(formData);
+    const data = {
+      messageText: formData.messageText,
+      sender: newMsgId,
+      recipient: "dina",
+    };
+    console.log(
+      formData,
+      data,
+      "this is formdata before a message sends from user sender"
+    );
+    let result = await RepnileApi.postMessage(data);
     // login(formData);
     // Needs to send message to db, and update message sent... can just post message tomessages/id?
     setFormData(INITIAL_STATE);
-  };
+  }
 
   /** Update local state w/curr state of input elem */
 
-  const handleChange = evt => {
-    const { name, value }= evt.target;
-    setFormData(fData => ({
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    setFormData((fData) => ({
       ...fData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -58,7 +61,7 @@ const MessageSender = () => {
 
   return (
     <div>
-      <UserMessageThread id={msgId}/>
+      <UserMessageThread id={msgId} />
       <form onSubmit={handleSubmit}>
         <label htmlFor="messageText">Message:</label>
         <input
@@ -68,11 +71,10 @@ const MessageSender = () => {
           onChange={handleChange}
           placeholder="Message Text"
         />
-        <br/>
+        <br />
         <button>Send Message</button>
       </form>
     </div>
-
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import Alert from "../common/Alert";
 import RepnileApi from "../api";
-import "./AnimalAddForm.css"
+import "./AnimalAddForm.css";
 
 /** Signup form.
  *
@@ -17,7 +17,7 @@ import "./AnimalAddForm.css"
 
 function AddAnimalForm() {
   const navigate = useNavigate();
-  const [file, setFile] = useState("");
+  const [files, setFiles] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     species: "",
@@ -47,7 +47,7 @@ function AddAnimalForm() {
    */
 
   const handleOnUploadFile = (e) => {
-    setFile(e.target.files[0]);
+    setFiles(e.target.files);
   };
 
   async function handleSubmit(evt) {
@@ -56,7 +56,7 @@ function AddAnimalForm() {
     Object.entries(formData).forEach(([k, v]) => {
       newFormData.append(k, v);
     });
-    newFormData.append("imgUrl", file);
+    newFormData.append("imgUrl", files);
     let result = await RepnileApi.addAnimal(newFormData);
     console.log(result, "this is result in handlesubmit of addanimalform");
     if (result) {
@@ -195,9 +195,10 @@ function AddAnimalForm() {
                   accept="image/png, image/jpeg"
                   className="form-control"
                   onChange={handleOnUploadFile}
+                  multiple
                 />
               </div>
-<br/>
+              <br />
               <button
                 type="submit"
                 className="btn btn-success float-right"
