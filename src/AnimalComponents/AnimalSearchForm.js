@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./AnimalSearchForm.css"
-import { Button } from 'reactstrap'
 
 /** Form for creating a new item to add to a list.
  *

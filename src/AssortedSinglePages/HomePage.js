@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import image0 from "../Images/image2.jpeg"
+import image0 from "../Images/image0.jpeg"
 import "./HomePage.css"
 
 const HomePage = () => {

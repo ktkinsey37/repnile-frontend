@@ -14,17 +14,14 @@ import RepnileApi from "../api";
  * Routed as /signup
  */
 
-function AddItemForm() {
+function ItemAddForm() {
   const navigate = useNavigate();
+  const [file, setFile] = useState("");
   const [formData, setFormData] = useState({
     name: "",
-    species: "",
-    birthDate: "",
-    weight: "",
-    sex: "",
-    colorationPattern: "",
-    primaryColor: "",
-    secondaryColor: "",
+    type: "",
+    description: "",
+    stock: "",
     price: "",
     forSale: true
   });
@@ -32,7 +29,7 @@ function AddItemForm() {
   // const [forSale, setForSale] = useState(true)
 
   console.debug(
-      "AddAnimalForm",
+      "ItemAddForm",
       "formData=", formData,
       "formErrors=", formErrors,
   );
@@ -42,12 +39,21 @@ function AddItemForm() {
    * Calls login func prop and, if successful, redirect to /companies.
    */
 
+   const handleOnUploadFile = (e) => {
+    setFile(e.target.files[0]);
+  };
+
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await RepnileApi.addAnimal(formData);
-    console.log(result, "this is result in handlesubmit of addanimalform")
+    const newFormData = new FormData();
+    Object.entries(formData).forEach(([k, v]) => {
+      newFormData.append(k, v);
+    });
+    newFormData.append("imgUrl", file);
+    let result = await RepnileApi.addItem(newFormData);
+    console.log(result, "this is result in handlesubmit of addanimalform");
     if (result) {
-      navigate("/animals");
+      navigate("/items");
     } else {
       setFormErrors(result.errors);
     }
@@ -56,21 +62,18 @@ function AddItemForm() {
   /** Update form data field */
   function handleChange(evt) {
     let { name, value } = evt.target;
-    console.log(evt.target, "this is evt target")
     if (evt.target.type == "checkbox"){
       evt.target.checked = !evt.target.checked
 
       value =  !evt.target.checked
-      console.log(evt.target.checked, "this is evt.tgt.check")
-      console.log(value, "this is value in hitting the check")
     }
     setFormData(data => ({ ...data, [name]: value }));
   }
 
   return (
-      <div className="AddAnimalForm">
+      <div className="ItemAddForm">
         <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-          <h2 className="mb-3">Add Animal</h2>
+          <h2 className="mb-3">Add Item</h2>
           <div className="card">
             <div className="card-body">
               <form onSubmit={handleSubmit}>
@@ -86,83 +89,43 @@ function AddItemForm() {
                 </div>
 
                 <div className="form-group">
-                <label>Species</label>
+                <label>Type</label>
                 <input
-                    name="species"
+                    name="type"
                     className="form-control"
-                    value={formData.species}
+                    value={formData.type}
                     onChange={handleChange}
                 />
                 </div>
 
                 <div className="form-group">
-                  <label>Birth Date</label>
+                  <label>Description</label>
                   <input
-                      name="birthDate"
+                      name="description"
                       className="form-control"
-                      value={formData.birthDate}
+                      value={formData.description}
                       onChange={handleChange}
                   />
                 </div>
                 
                 <div className="form-group">
-                  <label>Sex</label>
+                  <label>Stock</label>
                   <input
-                      name="sex"
+                      name="stock"
                       className="form-control"
-                      value={formData.sex}
+                      value={formData.stock}
                       onChange={handleChange}
                   />
                 </div>
 
                 <div className="form-group">
-                  <label>Weight</label>
+                  <label>Price</label>
                   <input
-                      name="weight"
+                      name="price"
                       className="form-control"
-                      value={formData.weight}
+                      value={formData.price}
                       onChange={handleChange}
                   />
-                </div>
-
-                <div className="form-group">
-                <label>Coloration Pattern</label>
-                <input
-                    name="colorationPattern"
-                    className="form-control"
-                    value={formData.colorationPattern}
-                    onChange={handleChange}
-                />
-                </div>
-
-                <div className="form-group">
-                <label>Primary Color</label>
-                <input
-                    name="primaryColor"
-                    className="form-control"
-                    value={formData.primaryColor}
-                    onChange={handleChange}
-                />
-                </div>
-
-                <div className="form-group">
-                <label>Secondary Color</label>
-                <input
-                    name="secondaryColor"
-                    className="form-control"
-                    value={formData.secondaryColor}
-                    onChange={handleChange}
-                />
-                </div>
-
-                <div className="form-group">
-                <label>Price</label>
-                <input
-                    name="price"
-                    className="form-control"
-                    value={formData.price}
-                    onChange={handleChange}
-                />
                 </div>
 
                 <div className="form-group">
@@ -183,11 +146,9 @@ function AddItemForm() {
                     accept="image/png, image/jpeg"
                     className="form-control"
                     value={formData.imgUrl}
-                    onChange={handleChange}
+                    onChange={handleOnUploadFile}
                 />
                 </div>
-
-
 
                 <button
                     type="submit"
@@ -210,4 +171,4 @@ function AddItemForm() {
 // }
 // THIS GOES ABOVE SUBMIT BUTTON
 
-export default AddItemForm;
+export default ItemAddForm;

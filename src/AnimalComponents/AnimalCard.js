@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import {
     Card,
     CardBody,
@@ -6,7 +6,6 @@ import {
     CardText,
   } from "reactstrap";
 import RepnileApi from "../api";
-import { Redirect, useParams } from "react-router-dom";
 
 
 
@@ -27,7 +26,7 @@ function AnimalCard({ animal }) {
     }
   
     return (
-      <section className="col-md-12" className="AnimalCard">
+      <section className="col-md-12 AnimalCard">
         <Card>
           <CardBody className="col-md-12 ">
           <img

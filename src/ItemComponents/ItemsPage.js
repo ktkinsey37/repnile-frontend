@@ -5,8 +5,6 @@ import {
   CardBody,
   CardTitle,
   CardText,
-  ListGroup,
-  ListGroupItem,
 } from "reactstrap";
 import ItemSearchForm from "./ItemSearchForm";
 import ItemCard from "./ItemCard";
@@ -18,8 +16,8 @@ function ItemsPage({}) {
 
   useEffect(() => {
     async function getItems() {
-      let items = await RepnileApi.getItems();
-      console.log(typeof items, "items in the useeffect");
+      let items = await RepnileApi.getAllItems();
+      console.log(items, "items in the useeffect");
       setItems(items);
       setIsLoading(false);
     }

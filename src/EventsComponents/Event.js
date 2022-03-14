@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 import RepnileApi from "../api";
-import { Redirect, useParams } from "react-router-dom";
-import UserContext from "../UserContext";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function Animal() {
+function Event() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [event, setEvent] = useState([]);
@@ -15,7 +13,7 @@ function Animal() {
       async function getEvent() {
         let event = await RepnileApi.getEvent(id);
         console.log(event, "this is animal in  getanimalonload");
-        setEvent(event);
+        setEvent(event.event);
         setIsLoading(false);
       }
       getEvent();
@@ -30,26 +28,20 @@ function Animal() {
   if (isLoading) {
     return <p>Loading... &hellip;</p>;
   }
-
-//   <img
-//   src={RepnileApi.getImage(animal.imgUrl)}
-//   alt={animal.name}
-//   width="500"
-//   height="600"
-// />
-
-// {event.title}
-// <br />
-// Weight: {event.date} grams
-// <br />
-// Coloration Pattern: {event.description}
+console.log(event)
 
   return (
     <section className="col-md-4">
       <Card>
         <CardBody>
           <CardTitle className="font-weight-bold text-center">
-
+            {event.title}
+            <br/>
+            <br/>
+            {event.date}
+            <br/>
+            <br/>
+            {event.description}
             <br />
             <br />
           </CardTitle>
@@ -60,4 +52,4 @@ function Animal() {
   );
 }
 
-export default Animal;
+export default Event;

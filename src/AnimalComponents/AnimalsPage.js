@@ -5,8 +5,6 @@ import {
   CardBody,
   CardTitle,
   CardText,
-  ListGroup,
-  ListGroupItem
 } from "reactstrap";
 import RepnileApi from "../api"
 import AnimalSearchForm from "./AnimalSearchForm";

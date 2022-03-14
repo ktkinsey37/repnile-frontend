@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 import RepnileApi from "../api";
-import AnimalCard from "./AnimalCard";
-import { Redirect, useParams } from "react-router-dom";
-import UserContext from "../UserContext";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Animal.css"
 
@@ -17,6 +15,7 @@ function Animal() {
     function getAnimalOnLoad() {
       async function getAnimal() {
         let animal = await RepnileApi.getAnimal(id);
+        let parents = 
         // should i do parents here?
         console.log(animal, "this is animal in  getanimalonload");
         setAnimal(animal);

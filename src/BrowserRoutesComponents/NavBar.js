@@ -31,6 +31,9 @@ function NavBar({ logout }) {
           </NavItem>
           &nbsp;
           <NavItem>
+            <NavLink to="/events">Upcoming Events</NavLink>            
+          </NavItem>
+          <NavItem>
             <NavLink to="/messages/send">Contact Us</NavLink>
           </NavItem>
           <NavItem>
@@ -81,7 +84,21 @@ function NavBar({ logout }) {
           &nbsp;
           &nbsp;
           <NavItem>
+            <NavLink to="/items/add">Add Item</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
             <NavLink to="/events">Upcoming Events</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
+            <NavLink to="/events/add">Add Event</NavLink>            
           </NavItem>
           &nbsp;
           &nbsp;

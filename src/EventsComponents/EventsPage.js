@@ -4,15 +4,12 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardText,
-  ListGroup,
-  ListGroupItem
 } from "reactstrap";
 import RepnileApi from "../api"
-import UpcomingEventCard from "./UpcomingEventCard";
+import EventCard from "./EventCard";
 
 
-function UpcomingEventsPage({ }) {
+function EventsPage({ }) {
 
     const [isLoading, setIsLoading] = useState(true);
     const [events, setEvents] = useState([]);
@@ -25,6 +22,8 @@ function UpcomingEventsPage({ }) {
       }
       getEvents()
     }, []);
+
+    console.log(events)
   
     if (isLoading) {
       return <p>Loading &hellip;</p>;
@@ -42,7 +41,7 @@ function UpcomingEventsPage({ }) {
           <Card>
             {events.map(event => (
               <Link to={`/events/${event.id}`}>
-                <UpcomingEventCard event={event}/>
+                <EventCard event={event}/>
               </Link>
             ))}
           </Card>
@@ -54,4 +53,4 @@ function UpcomingEventsPage({ }) {
   );
 }
 
-export default UpcomingEventsPage;
+export default EventsPage;

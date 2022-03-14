@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 import RepnileApi from "../api";
-import { Redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import UserContext from "../UserContext";
-import { Link } from "react-router-dom";
 
 function Item() {
   const { id } = useParams();

@@ -16,8 +16,10 @@ import { Route, Routes } from "react-router-dom";
 import UserContext from "../UserContext";
 import AnimalEditForm from "../AnimalComponents/AnimalEditForm";
 import TermsOfService from "../AssortedSinglePages/TermsOfService";
-import UpcomingEventsPage from "../UpcomingEventsComponents/UpcomingEventsPage";
-import UpcomingEvent from "../UpcomingEventsComponents/UpcomingEvent";
+import UpcomingEventsPage from "../EventsComponents/EventsPage";
+import UpcomingEvent from "../EventsComponents/Event";
+import EventAddForm from "../EventsComponents/EventAdd";
+import ItemAddForm from "../ItemComponents/ItemAddForm"
 import About from "../AssortedSinglePages/About";
 
 
@@ -43,8 +45,10 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/animals/add" element={<AnimalAddForm />}/>
                 <Route exact path="/item" element={<ItemsPage />}/>
                 <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
+                <Route exact path="/items/add" element={<ItemAddForm />}/>
                 <Route exact path="/events" element={<UpcomingEventsPage />}/>
                 <Route exact path="/events/:id" cantFind="/events" element={<UpcomingEvent />}/>
+                <Route exact path="/events/add" element={<EventAddForm />}/>
                 <Route exact path="/terms_of_service" element={<TermsOfService/>}/>
                 <Route exact path="/about" element={<About/>}/>
 

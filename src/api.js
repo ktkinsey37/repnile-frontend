@@ -96,13 +96,13 @@ class RepnileApi {
   }
 
   static async addItem(formData) {
-    let res = await this.request("items", formData, "post");
-    return;
+    let res = await this.request("items", formData, "post", true);
+    return res;
   }
 
-  static async getItems(id) {
+  static async getItem(id) {
     let res = await this.request(`items/${id}`);
-    return res.animal;
+    return res.items;
   }
 
   static async getAllAItems() {
@@ -113,6 +113,13 @@ class RepnileApi {
   static async getAItemsQuery(term) {
     let res = await this.request("items", term);
     return res.items;
+  }
+
+  static async updateItem(formData, id) {
+    // formData.weight = String(formData.weight);
+    // console.log(formData, "this is formdata in updateanimal");
+    let res = await this.request(`items/${id}`, formData, "patch");
+    return res;
   }
 
   static async getAllMessageThreads() {
@@ -136,12 +143,25 @@ class RepnileApi {
   }
 
   static async addEvent(formData) {
-    let res = await this.request("messages", formData, "post");
-    return;
+    let res = await this.request("events", formData, "post");
+    return res;
   }
 
   static async getEvent(id) {
     let res = await this.request(`events/${id}`);
+    return res;
+  }
+
+  static async getEvents() {
+    let res = await this.request("events");
+    // console.log(typeof res.animals, "typeof res.animals");
+    return res.events;
+  }
+
+  static async updateEvent(formData, id) {
+    // formData.weight = String(formData.weight);
+    // console.log(formData, "this is formdata in updateanimal");
+    let res = await this.request(`events/${id}`, formData, "patch");
     return res;
   }
 

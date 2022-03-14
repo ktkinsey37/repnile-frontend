@@ -69,13 +69,11 @@ function AddAnimalForm() {
   /** Update form data field */
   function handleChange(evt) {
     let { name, value } = evt.target;
-    console.log(evt.target, "this is evt target");
+
     if (evt.target.type == "checkbox") {
       evt.target.checked = !evt.target.checked;
 
       value = !evt.target.checked;
-      console.log(evt.target.checked, "this is evt.tgt.check");
-      console.log(value, "this is value in hitting the check");
     }
     setFormData((data) => ({ ...data, [name]: value }));
   }

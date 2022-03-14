@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import {
     Card,
     CardBody,
     CardTitle,
     CardText,
   } from "reactstrap";
-import RepnileApi from "../api";
-import { Redirect, useParams } from "react-router-dom";
 
 
 
@@ -38,7 +36,7 @@ function ItemCard({ item }) {
     }
   
     return (
-      <section className="col-md-12" className="ItemCard">
+      <section className="col-md-12 ItemCard">
         <Card>
           <CardBody className="col-md-12 ">
           <img src={logoUrl} className="position-absolute top-5 end-5 float-right ml-5"/>

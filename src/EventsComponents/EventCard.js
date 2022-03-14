@@ -5,25 +5,24 @@ import {
     CardTitle,
     CardText,
   } from "reactstrap";
-import RepnileApi from "../api";
-import { Redirect, useParams } from "react-router-dom";
 
 
 
-function UpcomingEventCard({ event }) {
+function EventCard({ event }) {
 
     let logoUrl
 
     // <img src={logoUrl} className="position-absolute top-5 end-5 float-right ml-5"/>
   
     return (
-      <section className="col-md-12" className="UpcomingEventsCard">
+      <section className="col-md-12 UpcomingEventsCard">
         <Card>
           <CardBody className="col-md-12 ">
 
             <CardTitle className="font-weight-bold text-center">
-              <b>{event.id}</b>
+              <b>{event.title}</b>
               <br/>
+              <p>{event.date}</p>
             </CardTitle>
             <CardText>
             </CardText>
@@ -33,4 +32,4 @@ function UpcomingEventCard({ event }) {
     );
   }
   
-  export default UpcomingEventCard;
+  export default EventCard;
