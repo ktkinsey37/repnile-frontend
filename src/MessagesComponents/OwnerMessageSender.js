@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import RepnileApi from "../api";
-import useLocalStorage from '../hooks/useLocalStorage';
-import { v4 as uuid } from 'uuid';
 
 
 /** Form for creating a new item to add to a list.

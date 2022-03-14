@@ -6,7 +6,7 @@ import UserContext from "../UserContext";
 function Item() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const user = useContext(UserContext);
 
   useEffect(() => {

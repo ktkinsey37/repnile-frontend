@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {
     Card,
     CardBody,
     CardTitle,
     CardText,
   } from "reactstrap";
-import RepnileApi from "../api";
-import { Redirect, useParams } from "react-router-dom";
 
 
 
@@ -14,7 +12,7 @@ function Message({ message }) {
 
   
     return (
-      <section className="col-md-12" className="AnimalCard">
+      <section className="col-md-12 AnimalCard">
         <Card>
           <CardBody className="col-md-12 ">
             <CardTitle className="font-weight-bold">

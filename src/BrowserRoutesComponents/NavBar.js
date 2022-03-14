@@ -1,14 +1,9 @@
 import React, {useContext} from "react";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
-import { Navbar, Nav,  Collapse,
-    NavbarToggler,
+import { Navbar, Nav,
     NavbarBrand,
-    NavItem,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem} from "reactstrap";
+    NavItem} from "reactstrap";
 import UserContext from "../UserContext";
 
 

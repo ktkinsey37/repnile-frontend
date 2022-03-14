@@ -4,11 +4,8 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardText,
-  ListGroup,
-  ListGroupItem
+  CardText
 } from "reactstrap";
-import MessageThread from "./MessageThread"
 import RepnileApi from "../api"
 
 

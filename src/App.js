@@ -1,12 +1,9 @@
-import logo from './logo.svg';
-import JoblyApi from "./api"
 import AppRoutes from './BrowserRoutesComponents/AppRoutes';
-import React, { useState, useEffect, createContext } from "react";
+import React from "react";
 import UserContext from './UserContext';
 import useLocalStorage from './hooks/useLocalStorage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RepnileApi from './api';
-import { useNavigate } from 'react-router-dom';
 
 // import { update } from '../../backend/models/user';
 
