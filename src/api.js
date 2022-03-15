@@ -102,10 +102,11 @@ class RepnileApi {
 
   static async getItem(id) {
     let res = await this.request(`items/${id}`);
-    return res.items;
+    console.log(res, "res in api")
+    return res;
   }
 
-  static async getAllAItems() {
+  static async getAllItems() {
     let res = await this.request("items");
     return res.items;
   }
