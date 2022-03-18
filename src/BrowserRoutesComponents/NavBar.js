@@ -72,6 +72,13 @@ function NavBar({ logout }) {
           &nbsp;
           &nbsp;
           <NavItem>
+            <NavLink to="/animals/parentage">Add Parentage</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
             <NavLink to="/items">Items</NavLink>            
           </NavItem>
           &nbsp;

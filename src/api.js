@@ -88,6 +88,10 @@ class RepnileApi {
     return res;
   }
 
+  static async addAnimalParentage(parentId, childId){
+    
+  }
+
   static async updateAnimal(formData, id) {
     formData.weight = String(formData.weight);
     console.log(formData, "this is formdata in updateanimal");

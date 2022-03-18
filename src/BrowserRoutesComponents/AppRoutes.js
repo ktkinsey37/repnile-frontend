@@ -22,6 +22,7 @@ import EventAddForm from "../EventsComponents/EventAdd";
 import ItemAddForm from "../ItemComponents/ItemAddForm"
 import About from "../AssortedSinglePages/About";
 import ItemEditForm from "../ItemComponents/ItemEditForm";
+import AnimalAddParentage from "../AnimalComponents/AnimalAddParentage";
 
 
 function AppRoutes({login, logout}) {
@@ -44,6 +45,7 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
                 <Route exact path="/animals/:id/edit" cantFind="/animals" element={<AnimalEditForm />}/>
                 <Route exact path="/animals/add" element={<AnimalAddForm />}/>
+                <Route exact path="/animals/parentage" element={<AnimalAddParentage />}/>
                 <Route exact path="/items" element={<ItemsPage />}/>
                 <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
                 <Route exact path="/items/add" element={<ItemAddForm />}/>
