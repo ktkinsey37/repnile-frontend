@@ -89,7 +89,8 @@ class RepnileApi {
   }
 
   static async addAnimalParentage(parentId, childId){
-    
+    console.log(parentId, childId, "this is ids in api.addparents")
+
   }
 
   static async updateAnimal(formData, id) {

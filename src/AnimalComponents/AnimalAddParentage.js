@@ -16,18 +16,13 @@ function AnimalAddParentage({ }) {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [animals, setAnimals] = useState([]);
-    const [formData, setFormData] = useState({
-        title: "",
-        date: "",
-        description: ""
-      });
+    const [parent, setParent] = useState("");
+    const [child, setChild] = useState("");
     const [formErrors, setFormErrors] = useState([]);
       // const [forSale, setForSale] = useState(true)
     
       console.debug(
         "AddParentageForm",
-        "formData=",
-        formData,
         "formErrors=",
         formErrors
       );
@@ -37,6 +32,8 @@ function AnimalAddParentage({ }) {
         let animals = await RepnileApi.getAllAnimals();
         console.log(animals, "animals in the useeffect")
         setAnimals(animals)
+        setParent(animals[0].name)
+        setChild(animals[0].name)
         setIsLoading(false);
       }
       getAnimals()
@@ -44,33 +41,27 @@ function AnimalAddParentage({ }) {
     
     async function handleSubmit(evt) {
     evt.preventDefault();
-    // const newFormData = new FormData();
-    // Object.entries(formData).forEach(([k, v]) => {
-    //   newFormData.append(k, v);
-    // });
-    // newFormData.append("imgUrl", file);
-    let result = await RepnileApi.addEvent(formData);
-    console.log(result, "this is result in handlesubmit of addevent");
-    if (result) {
-        navigate("/events");
-    } else {
-        setFormErrors(result.errors);
-    }
+    console.log(parent, child, "parent and child on submit")
+    // let result = await RepnileApi.addAnimalParentage(parent);
+    // console.log(result, "this is result in handlesubmit of addevent");
+    // if (result) {
+    //     navigate("/animals");
+    // } else {
+    //     setFormErrors(result.errors);
+    // }
     }
     
       /** Update form data field */
-    function handleChange(evt) {
-    let { name, value } = evt.target;
-    // console.log(evt.target, "this is evt target");
-    // if (evt.target.type == "checkbox") {
-    //   evt.target.checked = !evt.target.checked;
-
-    //   value = !evt.target.checked;
-    //   console.log(evt.target.checked, "this is evt.tgt.check");
-    //   console.log(value, "this is value in hitting the check");
-    // }
-    setFormData((data) => ({ ...data, [name]: value }));
+    function handleParentChange(evt) {
+      setParent(evt.target.value);
+    console.log(parent, "this is changeparent")
     }
+
+    function handleChildChange(evt) {
+      setChild(evt.target.value);
+    console.log(child, "this is changeparent")
+    }
+    
     
 
     if (isLoading) {
@@ -85,16 +76,16 @@ function AnimalAddParentage({ }) {
             <div className="card-body">
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <select name="subject" id="subject">
-                        {animals.map((animal) => <option key={animal.name} value={animal.name}>{animal.name}</option>)}
+                    <select name="parent" id="parent" onChange={handleParentChange}>
+                        {animals.map((animal) => <option key={animal.name} value={animal.id}>{animal.name}</option>)}
                     </select>
                 </div>
 
                 <div className="form-group">
                 <label>Is the parent of</label>
                 <div className="form-group">
-                    <select name="subject" id="subject">
-                        {animals.map((animal) => <option key={animal.name} value={animal.name}>{animal.name}</option>)}
+                    <select name="child" id="child" onChange={handleChildChange}>
+                        {animals.map((animal) => <option key={animal.name} value={animal.id}>{animal.name}</option>)}
                     </select>
                 </div>
                 </div>
