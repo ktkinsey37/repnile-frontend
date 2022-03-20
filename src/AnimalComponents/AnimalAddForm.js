@@ -17,7 +17,7 @@ import "./AnimalAddForm.css";
 
 function AddAnimalForm() {
   const navigate = useNavigate();
-  const [files, setFiles] = useState("");
+  const [file, setFile] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     species: "",
@@ -47,7 +47,7 @@ function AddAnimalForm() {
    */
 
   const handleOnUploadFile = (e) => {
-    setFiles(e.target.files);
+    setFile(e.target.files[0]);
   };
 
   async function handleSubmit(evt) {
@@ -56,7 +56,7 @@ function AddAnimalForm() {
     Object.entries(formData).forEach(([k, v]) => {
       newFormData.append(k, v);
     });
-    newFormData.append("imgUrl", files);
+    newFormData.append("imgUrl", file);
     let result = await RepnileApi.addAnimal(newFormData);
     console.log(result, "this is result in handlesubmit of addanimalform");
     if (result) {
