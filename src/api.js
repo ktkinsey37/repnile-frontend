@@ -79,18 +79,25 @@ class RepnileApi {
 
   static async addAnimal(formData) {
     console.log(formData, "formData addanimal in api");
-    // NEED TO HANDLE DATA INPUT AT THIS STEP
-    // if (formData.forSale = "true") formData.forSale = true;
-    // else if (formData.forSale = "false") formData.forSale = false;
-    // else throw new Error("For Sale needs to be either true or false")
     let res = await this.request("animals", formData, "post", true);
     console.log(res, "this is res in api");
     return res;
   }
 
   static async addAnimalParentage(parentId, childId){
-    console.log(parentId, childId, "this is ids in api.addparents")
+    let data = {}
+    data.parent=parentId
+    data.child=childId
+    let res = await this.request("animals/parents", data, "post")
+    console.log(res, "this is ids in api.addparents")
+    return res;
+  }
 
+  static async getAnimalParentage(id){
+    let res = await this.request(`animals/${id}/parents`, id)
+    console.log(res, "this is res in api.getanimalparentage")
+    if (!res) return undefined;
+    return res;
   }
 
   static async updateAnimal(formData, id) {

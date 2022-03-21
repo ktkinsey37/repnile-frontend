@@ -32,8 +32,8 @@ function AnimalAddParentage({ }) {
         let animals = await RepnileApi.getAllAnimals();
         console.log(animals, "animals in the useeffect")
         setAnimals(animals)
-        setParent(animals[0].name)
-        setChild(animals[0].name)
+        setParent(animals[0].id)
+        setChild(animals[0].id)
         setIsLoading(false);
       }
       getAnimals()
@@ -42,13 +42,13 @@ function AnimalAddParentage({ }) {
     async function handleSubmit(evt) {
     evt.preventDefault();
     console.log(parent, child, "parent and child on submit")
-    // let result = await RepnileApi.addAnimalParentage(parent);
-    // console.log(result, "this is result in handlesubmit of addevent");
-    // if (result) {
-    //     navigate("/animals");
-    // } else {
-    //     setFormErrors(result.errors);
-    // }
+    let result = await RepnileApi.addAnimalParentage(String(parent), String(child));
+    console.log(result, "this is result in handlesubmit of addevent");
+    if (result) {
+        navigate("/animals");
+    } else {
+        setFormErrors(result.errors);
+    }
     }
     
       /** Update form data field */

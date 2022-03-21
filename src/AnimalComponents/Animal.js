@@ -4,22 +4,36 @@ import RepnileApi from "../api";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Animal.css"
+import AnimalCard from "./AnimalCard";
 
 function Animal() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [animal, setAnimal] = useState([]);
+  const [parents, setParents] = useState([]);
   // const user = useContext(UserContext);
 
   useEffect(
     function getAnimalOnLoad() {
       async function getAnimal() {
+        let parents = [];
         let animal = await RepnileApi.getAnimal(id);
-        let parents = 
-        // should i do parents here?
-        console.log(animal, "this is animal in  getanimalonload");
+        // WHAT IF GETANIMALPARENTAGE DOESNT RETURN OR THROWS AN ERROR? TRY CATCH?
+        let parentIds = await RepnileApi.getAnimalParentage(id);
+        parentIds = parentIds.parentsIds
+        for (let i = 0; i < parentIds.length; i++){
+          console.log(parentIds[i], "should be abinak id")
+          let parent = await RepnileApi.getAnimal(parentIds[i].parentId);
+          console.log(parent, "parent inside the loop")
+          parents.push(parent)
+        }
+        console.log(animal, parents, "this is animal and parents in  getanimalonload");
+        setParents(parents);
         setAnimal(animal);
         setIsLoading(false);
+
+        // should i do parents here?
+
       }
       getAnimal();
     },
@@ -71,6 +85,13 @@ function Animal() {
           <CardText></CardText>
         </CardBody>
       </Card>
+      <Card>
+      {parents.map(parent => (
+        <Link to={`/animals/${parent.id}`}>
+          <AnimalCard animal={parent}/>
+        </Link>
+      ))}
+    </Card>
     </div>
   );
 }
