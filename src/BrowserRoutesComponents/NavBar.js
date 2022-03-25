@@ -17,29 +17,50 @@ function NavBar({ logout }) {
     // Need to remove the login bar later and just have it as a route dina can hit
   return (
     <div>
-      <Navbar expand="md">
-        <NavbarBrand href="/">Repnile</NavbarBrand>
-
-        <Nav className="ml-auto" navbar>
-          <NavItem>
-            <NavLink to="/login">Login</NavLink>            
-          </NavItem>
-          &nbsp;
-          <NavItem>
-            <NavLink to="/events">Upcoming Events</NavLink>            
-          </NavItem>
-          <NavItem>
-            <NavLink to="/messages/send">Contact Us</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/animals">Animals</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/items">Items</NavLink>            
-          </NavItem>
-        </Nav>
-      </Navbar>
-    </div>
+    <Navbar expand="md navbar2 justify-content-center">
+      <NavbarBrand href="/">Repnile</NavbarBrand>
+      <Nav className="m-auto" navbar>
+        <NavItem>
+          <NavLink to="/messages/send">Contact Us</NavLink>
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
+          <NavLink to="/animals">Animals</NavLink>
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
+          <NavLink to="/items">Items</NavLink>            
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
+          <NavLink to="/events">Upcoming Events</NavLink>            
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
+          <NavLink to="/terms_of_service">Terms of Service</NavLink>            
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
+          <NavLink to="/about">About Us</NavLink>            
+        </NavItem>
+      </Nav>
+    </Navbar>
+  </div>
   );}
 
 
@@ -51,7 +72,7 @@ function NavBar({ logout }) {
         <NavbarBrand href="/">Repnile</NavbarBrand>
         <Nav className="m-auto" navbar>
           <NavItem>
-            <NavLink to="/messages">Messages</NavLink>            
+            <NavLink to="/messages">Messages</NavLink>
           </NavItem>
           &nbsp;
           &nbsp;

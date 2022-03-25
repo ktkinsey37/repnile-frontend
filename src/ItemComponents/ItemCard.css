@@ -1,7 +1,9 @@
-.animal {
+.ItemCard {
     background-color: rgb(214, 205, 164);
+    color: black;
+    height: 15em;
 }
 
-.parents {
+.cardtext {
     text-align: center;
 }

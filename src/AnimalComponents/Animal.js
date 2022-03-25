@@ -85,10 +85,13 @@ function Animal() {
           <CardText></CardText>
         </CardBody>
       </Card>
+      <br/>
+      <h1 className="parents">PARENTS:</h1>
       <Card>
       {parents.map(parent => (
         <Link to={`/animals/${parent.id}`}>
           <AnimalCard animal={parent}/>
+          <br/>
         </Link>
       ))}
     </Card>

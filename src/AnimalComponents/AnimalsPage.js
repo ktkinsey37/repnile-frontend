@@ -44,10 +44,10 @@ function AnimalsPage({ }) {
     console.log(animals.map((animal) => console.log(animal)), "this is animals on animals page")
 
   return (
-    <div className="col-md-12 offset-md-4">
+    <div className="col-md-12 offset-md-1">
     <br/>
     <section className="col-md-10">
-      <Card style={{ width: '30rem' }}>
+      <Card>
         <CardBody className="col-md-12 ">
           <CardTitle className="font-weight-bold text-center">
             <h2>Animals</h2>
@@ -56,13 +56,12 @@ function AnimalsPage({ }) {
             <AnimalSearchForm search={search} />
           </CardText>
   
-          <Card>
+
             {animals.map(animal => (
               <Link to={`/animals/${animal.id}`}>
                 <AnimalCard animal={animal}/>
               </Link>
             ))}
-          </Card>
 
         </CardBody>
       </Card>

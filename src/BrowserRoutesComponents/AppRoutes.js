@@ -72,6 +72,12 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/animals" element={<AnimalsPage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
                 <Route exact path="/messages/send" element={<UserMessageSender />}/>
+                <Route exact path="/items" element={<ItemsPage />}/>
+                <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
+                <Route exact path="/events" element={<UpcomingEventsPage />}/>
+                <Route exact path="/events/:id" cantFind="/events" element={<UpcomingEvent />}/>
+                <Route exact path="/terms_of_service" element={<TermsOfService/>}/>
+                <Route exact path="/about" element={<About/>}/>
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>
             </Routes>
             </main>

@@ -6,6 +6,7 @@ import {
     CardText,
   } from "reactstrap";
 import RepnileApi from "../api";
+import "./ItemCard.css"
 
 
 
@@ -37,14 +38,13 @@ function ItemCard({ item }) {
     }
   
     return (
-      <section className="col-md-12 ItemCard">
-        <Card>
+        <Card className="col-md-12 ItemCard">
           <CardBody className="col-md-12 ">
           <img
           src={RepnileApi.getImage(item.imgUrl)}
           alt={item.name}
-          width="50px"
-          height="60px"
+          width="180px"
+          height="200px"
           className="position-absolute top-5 end-5 float-right ml-5"
         />
 
@@ -57,7 +57,6 @@ function ItemCard({ item }) {
             </CardText>
           </CardBody>
         </Card>
-      </section>
     );
   }
   
