@@ -12,7 +12,7 @@ function Message({ message }) {
 
   
     return (
-      <section className="col-md-12 AnimalCard">
+      <section className="col-md-12">
         <Card>
           <CardBody className="col-md-12 ">
             <CardTitle className="font-weight-bold">
