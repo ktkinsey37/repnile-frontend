@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RepnileApi from "../api";
+import { useNavigate } from "react-router-dom";
 
 
 /** Form for creating a new item to add to a list.
@@ -10,6 +11,7 @@ import RepnileApi from "../api";
  */
 
 const OwnerMessageSender = ({ messageThread }) => {
+  const navigate = useNavigate();
   const INITIAL_STATE = {messageText: ""};
   const [formData, setFormData] = useState(INITIAL_STATE);
 //   const [msgId, setMsgId] = useLocalStorage("msgId", undefined);
@@ -34,6 +36,8 @@ const OwnerMessageSender = ({ messageThread }) => {
     // login(formData);
     // Needs to send message to db, and update message sent... can just post message tomessages/id?
     setFormData(INITIAL_STATE);
+    console.log("************************************************************************************************HELLO")
+    window.location.href = window.location.href;
   };
 
   /** Update local state w/curr state of input elem */

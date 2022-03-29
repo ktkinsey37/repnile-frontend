@@ -33,6 +33,30 @@ const AnimalSearchForm = ({ search }) => {
 
   /** render form */
 
+  // <input
+  // id="weight"
+  // name="weight"
+  // value={formData.weight}
+  // onChange={handleChange}
+  // placeholder="Weight"
+  // />
+
+  // <input
+  // id="age"
+  // name="age"
+  // value={formData.age}
+  // onChange={handleChange}
+  // placeholder="Age"
+  // />
+
+  // <input
+  // id="price"
+  // name="price"
+  // value={formData.price}
+  // onChange={handleChange}
+  // placeholder="Price"
+  // />
+
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -73,30 +97,6 @@ const AnimalSearchForm = ({ search }) => {
       value={formData.secondaryColor}
       onChange={handleChange}
       placeholder="Secondary Color"
-      />
-
-      <input
-      id="weight"
-      name="weight"
-      value={formData.weight}
-      onChange={handleChange}
-      placeholder="Weight"
-      />
-
-      <input
-      id="age"
-      name="age"
-      value={formData.age}
-      onChange={handleChange}
-      placeholder="Age"
-      />
-
-      <input
-      id="price"
-      name="price"
-      value={formData.price}
-      onChange={handleChange}
-      placeholder="Price"
       />
 
       <br/>

@@ -3,6 +3,7 @@ import RepnileApi from "../api";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { v4 as uuid } from "uuid";
 import UserMessageThread from "./UserMessageThread";
+import { useNavigate } from "react-router-dom";
 
 /** Form for creating a new item to add to a list.
  *
@@ -12,6 +13,7 @@ import UserMessageThread from "./UserMessageThread";
  */
 
 const MessageSender = () => {
+  const navigate = useNavigate();
   const INITIAL_STATE = { messageText: "" };
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [msgId, setMsgId] = useLocalStorage("msgId", undefined);
@@ -42,6 +44,7 @@ const MessageSender = () => {
       "this is formdata before a message sends from user sender"
     );
     let result = await RepnileApi.postMessage(data);
+    window.location.href = window.location.href;
     // login(formData);
     // Needs to send message to db, and update message sent... can just post message tomessages/id?
     setFormData(INITIAL_STATE);
