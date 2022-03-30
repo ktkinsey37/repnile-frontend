@@ -81,6 +81,8 @@ function Animal() {
             />
             <br />
             <Link to={`/animals/${animal.id}/edit`}>Edit</Link>
+            <br/>
+            <Link to={`/animals/${animal.id}/images`}>Add Pictures</Link>
           </CardTitle>
           <CardText></CardText>
         </CardBody>

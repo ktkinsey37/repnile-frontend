@@ -84,6 +84,11 @@ class RepnileApi {
     return res;
   }
 
+  static async addAnimalImages(formData, id){
+    console.log(formData, "formdata in addanimalimages, should be an array of images")
+    let res = await this.request(`animals/${id}`, formData, "post", true);
+  }
+
   static async addAnimalParentage(parentId, childId){
     let data = {}
     data.parent=parentId
