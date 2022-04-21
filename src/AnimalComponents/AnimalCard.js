@@ -36,24 +36,23 @@ function AnimalCard({ animal }) {
           src={RepnileApi.getImage(animal.imgUrl)}
           alt={animal.name}
           width="180px"
-          height="200px"
+          height="210px"
           className="position-absolute"
         />
-
+        <br/>
             <CardTitle className="font-weight-bold text-center">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
               <b>{animal.name}</b>
               <br/>
+              {animal.sex}
             </CardTitle>
-            <CardText className="cardtext">
-              {animal.colorationPattern} {animal.species}
-              <br/>
-              composed of
-              <br/>
-              {animal.primaryColor} and {animal.secondaryColor}
-              <br/>
-              <br/>
-              {forSale}
-            </CardText>
           </CardBody>
         </Card>
     );

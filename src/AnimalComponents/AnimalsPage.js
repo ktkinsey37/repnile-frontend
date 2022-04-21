@@ -5,6 +5,7 @@ import {
   CardBody,
   CardTitle,
   CardText,
+  Row,
 } from "reactstrap";
 import RepnileApi from "../api"
 import AnimalSearchForm from "./AnimalSearchForm";
@@ -55,13 +56,14 @@ function AnimalsPage({ }) {
           <CardText>
             <AnimalSearchForm search={search} />
           </CardText>
-  
-
-            {animals.map(animal => (
-              <Link to={`/animals/${animal.id}`}>
-                <AnimalCard animal={animal}/>
-              </Link>
-            ))}
+            <Row>
+              
+              {animals.map(animal => (
+                <Link className="col-md-3" to={`/animals/${animal.id}`}>
+                  <AnimalCard animal={animal}/>
+                </Link>
+              ))}
+            </Row>
 
         </CardBody>
       </Card>

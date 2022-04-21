@@ -42,6 +42,9 @@ function AnimalAddParentage({ }) {
     async function handleSubmit(evt) {
     evt.preventDefault();
     console.log(parent, child, "parent and child on submit")
+    if (String(parent) === String(child)) {
+      throw new Error("A parent can not be it's own child.")
+    }
     let result = await RepnileApi.addAnimalParentage(String(parent), String(child));
     console.log(result, "this is result in handlesubmit of addevent");
     if (result) {

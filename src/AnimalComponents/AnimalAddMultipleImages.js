@@ -50,7 +50,7 @@ function AnimalAddMultipleImages() {
       formData.append('imgCollection', files[i], files[i].name);
     }
     let result = await RepnileApi.addAnimalImages(formData, id);
-    // console.log(result, "this is result in handlesubmit of addanimalform");
+    console.log(result, "this is result in handlesubmit of addanimalform");
     if (result) {
       navigate("/animals");
     } else {
