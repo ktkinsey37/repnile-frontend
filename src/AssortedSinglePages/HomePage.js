@@ -11,8 +11,8 @@ const HomePage = () => {
         <img className="homeImage" src={image0}>
         </img>
         <div class="centered">
-          <h1 class="font-weight-bold">Repnile Exotics</h1>
-          <h4>All your reptile needs in one convenient place</h4>
+          <h1 class="font-weight-bold repnileText">Repnile Exotics</h1>
+          <h4 class="repnileText">All your reptile needs in one convenient place</h4>
         </div>
       </div>
     </div>

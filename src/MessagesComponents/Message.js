@@ -7,7 +7,8 @@ import {
   } from "reactstrap";
 
 
-
+// Accepts a message prop retrieved from an earlier call and renders the single message
+// including From, To, createdAt (datetime), and messageText.
 function Message({ message }) {
 
   

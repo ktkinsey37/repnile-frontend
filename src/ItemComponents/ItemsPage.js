@@ -49,7 +49,6 @@ function ItemsPage({}) {
             <h2>Items</h2>
           </CardTitle>
           <CardText>
-            <ItemSearchForm search={search} />
           </CardText>
 
           <Card>

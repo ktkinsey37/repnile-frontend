@@ -10,18 +10,17 @@ import {
 import RepnileApi from "../api"
 import AnimalSearchForm from "./AnimalSearchForm";
 import AnimalCard from "./AnimalCard";
-import "./AnimalsPage.css"
 
 
 
-function AnimalsPage({ }) {
+function ForSalePage({ }) {
 
     const [isLoading, setIsLoading] = useState(true);
     const [animals, setAnimals] = useState([]);
 
     useEffect(() => {
       async function getAnimals() {
-        let animals = await RepnileApi.getAllAnimals();
+        let animals = await RepnileApi.getForSaleAnimals();
         console.log(typeof(animals), "animals in the useeffect")
         setAnimals(animals)
         setIsLoading(false);
@@ -33,6 +32,7 @@ function AnimalsPage({ }) {
         setIsLoading(true)
         console.log(params, "params in search isnide animalspage")
         let animals = await RepnileApi.getAnimalsQuery(params);
+        // NEED TO MAKE A NEW FUNCTION
         console.log(animals, "animals in search")
         setAnimals(animals);
         setIsLoading(false);
@@ -46,11 +46,11 @@ function AnimalsPage({ }) {
     console.log(animals.map((animal) => console.log(animal)), "this is animals on animals page")
 
   return (
-    <div className="col-md-12 offset-md-1 animalsPage">
+    <div className="col-md-12 offset-md-1">
     <br/>
     <section className="col-md-10">
       <Card>
-        <CardBody className="col-md-12 animalsPage">
+        <CardBody className="col-md-12 ">
           <CardTitle className="font-weight-bold text-center">
             <h2>Animals</h2>
           </CardTitle>
@@ -75,4 +75,4 @@ function AnimalsPage({ }) {
 
 // The above can go inside of list group
 
-export default AnimalsPage;
+export default ForSalePage;

@@ -4,6 +4,7 @@ import UserContext from './UserContext';
 import useLocalStorage from './hooks/useLocalStorage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RepnileApi from './api';
+import "./App.css"
 
 // import { update } from '../../backend/models/user';
 
@@ -34,7 +35,7 @@ async function logout(){
 
   return (
     <UserContext.Provider value = {{username: currUser, token: currToken}}>
-    <div className="App">
+    <div className="Repnile">
       <header className="App-header">
           <AppRoutes login={login} logout={logout} />
       </header>

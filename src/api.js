@@ -47,6 +47,11 @@ class RepnileApi {
   static getImage(imageName) {
     return BASE_URL + "/" + imageName;
   }
+
+  static async deleteImage(imgUrl) {
+    let res = await this.request(`animals/image/${imgUrl}`, {}, "delete")
+  }
+  
   static async loginUser(formData) {
     let res = await this.request("auth/token", formData, "post");
     const returnVal = { username: formData.username, token: res.token };
@@ -74,6 +79,21 @@ class RepnileApi {
   static async getAnimalsQuery(params) {
     console.log(params, "params in getanimalsquery");
     let res = await this.request("animals", params);
+    return res.animals;
+  }
+
+  static async getBreeders() {
+    let res = await this.request("animals/breeders")
+    return res.animals;
+  }
+
+  static async getForSaleAnimals() {
+    let res = await this.request("animals/forsale")
+    return res.animals;
+  }
+
+  static async getNotForSaleAnimals() {
+    let res = await this.request("animals/notforsale")
     return res.animals;
   }
 
@@ -107,7 +127,7 @@ class RepnileApi {
   }
 
   static async updateAnimal(formData, id) {
-    formData.weight = String(formData.weight);
+    formData.weightInGrams = String(formData.weightInGrams);
     console.log(formData, "this is formdata in updateanimal");
     let res = await this.request(`animals/${id}`, formData, "patch");
     return res;

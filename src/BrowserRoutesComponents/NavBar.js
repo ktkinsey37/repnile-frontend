@@ -35,6 +35,27 @@ function NavBar({ logout }) {
         &nbsp;
         &nbsp;
         <NavItem>
+          <NavLink to="/animals/breeders">Breeders</NavLink>            
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
+          <NavLink to="/animals/forsale">For Sale</NavLink>
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
+          <NavLink to="/animals/notforsale">Not For Sale</NavLink>
+        </NavItem>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <NavItem>
           <NavLink to="/items">Items</NavLink>            
         </NavItem>
         &nbsp;
@@ -86,6 +107,20 @@ function NavBar({ logout }) {
           &nbsp;
           &nbsp;
           <NavItem>
+            <NavLink to="/animals/forsale">For Sale</NavLink>
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
+            <NavLink to="/animals/notforsale">Not For Sale</NavLink>
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
             <NavLink to="/animals/add">Add Animal</NavLink>
           </NavItem>
           &nbsp;
@@ -94,6 +129,13 @@ function NavBar({ logout }) {
           &nbsp;
           <NavItem>
             <NavLink to="/animals/parentage">Add Parentage</NavLink>            
+          </NavItem>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NavItem>
+            <NavLink to="/animals/breeders">Breeders</NavLink>            
           </NavItem>
           &nbsp;
           &nbsp;

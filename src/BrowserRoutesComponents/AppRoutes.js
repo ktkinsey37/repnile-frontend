@@ -24,7 +24,10 @@ import About from "../AssortedSinglePages/About";
 import ItemEditForm from "../ItemComponents/ItemEditForm";
 import AnimalAddParentage from "../AnimalComponents/AnimalAddParentage";
 import AnimalAddMultipleImages from "../AnimalComponents/AnimalAddMultipleImages";
-
+import BreedersPage from "../AnimalComponents/BreedersPage";
+import ForSalePage from "../AnimalComponents/ForSalePage"
+import NotForSalePage from "../AnimalComponents/NotForSalePage";
+import "./AppRoutes.css"
 
 function AppRoutes({login, logout}) {
 
@@ -37,7 +40,7 @@ function AppRoutes({login, logout}) {
         return (
             <BrowserRouter>
             <NavBar logout={logout} />
-            <main>
+
             <Routes>
                 <Route exact path="/" element={<HomePage />}/>
                 <Route exact path="/messages" element={<MessagesPage />}/>
@@ -48,6 +51,9 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/animals/:id/images" cantFind="/animals" element={<AnimalAddMultipleImages />}/>
                 <Route exact path="/animals/add" element={<AnimalAddForm />}/>
                 <Route exact path="/animals/parentage" element={<AnimalAddParentage />}/>
+                <Route exact path="/animals/breeders" element={<BreedersPage />}/>
+                <Route exact path="/animals/forsale" element={<ForSalePage />}/>
+                <Route exact path="/animals/notforsale" element={<NotForSalePage />}/>
                 <Route exact path="/items" element={<ItemsPage />}/>
                 <Route exact path="/items/:id" cantFind="/item" element={<Item />}/>
                 <Route exact path="/items/add" element={<ItemAddForm />}/>
@@ -60,18 +66,19 @@ function AppRoutes({login, logout}) {
 
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>
             </Routes>
-            </main>
             </BrowserRouter>
         )};
 
         return (
             <BrowserRouter>
             <NavBar />
-            <main>
             <Routes>
                 <Route exact path="/" element={<HomePage />}/>
                 <Route exact path="/login" element={<LoginForm login={login}/>}/>
                 <Route exact path="/animals" element={<AnimalsPage />}/>
+                <Route exact path="/animals/breeders" element={<BreedersPage />}/>
+                <Route exact path="/animals/forsale" element={<ForSalePage />}/>
+                <Route exact path="/animals/notforsale" element={<NotForSalePage />}/>
                 <Route exact path="/animals/:id" cantFind="/animals" element={<Animal />}/>
                 <Route exact path="/messages/send" element={<UserMessageSender />}/>
                 <Route exact path="/items" element={<ItemsPage />}/>
@@ -82,7 +89,6 @@ function AppRoutes({login, logout}) {
                 <Route exact path="/about" element={<About/>}/>
                 <Route element={<p>Hmmm. I can't seem to find what you want.</p>}/>
             </Routes>
-            </main>
             </BrowserRouter>
         );
   }

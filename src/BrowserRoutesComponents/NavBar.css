@@ -8,6 +8,6 @@
 }
 
 .navbar2 a:hover {
-    color: rgb(45, 119, 45);
+    background-color: rgb(9, 44, 28);
     text-decoration: underline;
 }

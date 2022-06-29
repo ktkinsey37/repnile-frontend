@@ -21,14 +21,16 @@ function AddAnimalForm() {
   const [formData, setFormData] = useState({
     name: "",
     species: "",
-    birthDate: "",
-    weight: "",
+    hatchDate: "",
+    weightInGrams: "",
     sex: "",
-    colorationPattern: "",
-    primaryColor: "",
-    secondaryColor: "",
+    morph: "",
+    baseColor: "",
+    pattern: "",
     price: "",
+    priceWithPlan: "",
     forSale: true,
+    breeder: true,
   });
   const [formErrors, setFormErrors] = useState([]);
   // const [forSale, setForSale] = useState(true)
@@ -106,11 +108,11 @@ function AddAnimalForm() {
               </div>
 
               <div className="form-group">
-                <label>Birth Date</label>
+                <label>Hatch Date</label>
                 <input
-                  name="birthDate"
+                  name="hatchDate"
                   className="form-control"
-                  value={formData.birthDate}
+                  value={formData.hatchDate}
                   onChange={handleChange}
                 />
               </div>
@@ -126,41 +128,41 @@ function AddAnimalForm() {
               </div>
 
               <div className="form-group">
-                <label>Weight</label>
+                <label>Weight in Grams</label>
                 <input
-                  name="weight"
+                  name="weightInGrams"
                   className="form-control"
-                  value={formData.weight}
+                  value={formData.weightInGrams}
                   onChange={handleChange}
                 />
               </div>
 
               <div className="form-group">
-                <label>Coloration Pattern</label>
+                <label>Morph</label>
                 <input
-                  name="colorationPattern"
+                  name="morph"
                   className="form-control"
-                  value={formData.colorationPattern}
+                  value={formData.morph}
                   onChange={handleChange}
                 />
               </div>
 
               <div className="form-group">
-                <label>Primary Color</label>
+                <label>Base Color</label>
                 <input
-                  name="primaryColor"
+                  name="baseColor"
                   className="form-control"
-                  value={formData.primaryColor}
+                  value={formData.baseColor}
                   onChange={handleChange}
                 />
               </div>
 
               <div className="form-group">
-                <label>Secondary Color</label>
+                <label>Pattern</label>
                 <input
-                  name="secondaryColor"
+                  name="pattern"
                   className="form-control"
-                  value={formData.secondaryColor}
+                  value={formData.pattern}
                   onChange={handleChange}
                 />
               </div>
@@ -173,6 +175,28 @@ function AddAnimalForm() {
                   value={formData.price}
                   onChange={handleChange}
                 />
+              </div>
+
+              <div className="form-group">
+                <label>Price with Plan</label>
+                <input
+                  name="priceWithPlan"
+                  className="form-control"
+                  value={formData.priceWithPlan}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>
+                  Breeder
+                  <input
+                    name="breeder"
+                    type="checkbox"
+                    checked={formData.breeder}
+                    onChange={handleChange}
+                  />
+                </label>
               </div>
 
               <div className="form-group">

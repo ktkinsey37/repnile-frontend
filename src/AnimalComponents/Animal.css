@@ -5,3 +5,8 @@
 .parents {
     text-align: center;
 }
+
+.animalPhoto{
+    vertical-align: middle;
+    margin:20px
+} 

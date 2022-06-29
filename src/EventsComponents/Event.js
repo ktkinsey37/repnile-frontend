@@ -44,6 +44,12 @@ console.log(event)
             {event.description}
             <br />
             <br />
+            <img
+            src={RepnileApi.getImage(event.imgUrl)}
+            alt={event.name}
+            width="50%"
+            height="50%"
+          />
           </CardTitle>
           <CardText></CardText>
         </CardBody>

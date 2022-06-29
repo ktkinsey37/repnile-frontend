@@ -12,6 +12,8 @@ import "./AnimalCard.css"
 
 function AnimalCard({ animal }) {
 
+    console.log(animal, "this is animal on animalcard render")
+
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -31,16 +33,22 @@ function AnimalCard({ animal }) {
   
     return (
         <Card className="col-md-12 AnimalCard">
-          <CardBody>
+          <CardBody
+          style={{
+            display: "flex",
+            justifyContent: "center"
+
+          }}>
           <img
           src={RepnileApi.getImage(animal.imgUrl)}
           alt={animal.name}
-          width="180px"
-          height="210px"
+          width="350px"
+          height="270px"
           className="position-absolute"
         />
         <br/>
             <CardTitle className="font-weight-bold text-center">
+            <br/>
             <br/>
             <br/>
             <br/>

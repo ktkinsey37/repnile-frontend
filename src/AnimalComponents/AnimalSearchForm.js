@@ -58,7 +58,7 @@ const AnimalSearchForm = ({ search }) => {
   // />
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="repnile">
       <input
         id="name"
         name="name"

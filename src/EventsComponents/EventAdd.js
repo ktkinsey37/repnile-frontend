@@ -40,21 +40,25 @@ function EventAddForm() {
    */
 
 
-  async function handleSubmit(evt) {
-    evt.preventDefault();
-    // const newFormData = new FormData();
-    // Object.entries(formData).forEach(([k, v]) => {
-    //   newFormData.append(k, v);
-    // });
-    // newFormData.append("imgUrl", file);
-    let result = await RepnileApi.addEvent(formData);
-    console.log(result, "this is result in handlesubmit of addevent");
-    if (result) {
-      navigate("/events");
-    } else {
-      setFormErrors(result.errors);
+   const handleOnUploadFile = (e) => {
+      setFile(e.target.files[0]);
+    };
+
+    async function handleSubmit(evt) {
+      evt.preventDefault();
+      const newFormData = new FormData();
+      Object.entries(formData).forEach(([k, v]) => {
+        newFormData.append(k, v);
+      });
+      newFormData.append("imgUrl", file);
+      let result = await RepnileApi.addEvent(newFormData);
+      console.log(result, "this is result in handlesubmit of addeventsform");
+      if (result) {
+        navigate("/events");
+      } else {
+        setFormErrors(result.errors);
+      }
     }
-  }
 
   /** Update form data field */
   function handleChange(evt) {
@@ -106,8 +110,19 @@ function EventAddForm() {
                   onChange={handleChange}
                 />
               </div>
-
-<br/>
+              <br/>
+              <div className="form-group">
+              <label>Picture</label>
+              <input
+                type="file"
+                name="imgUrl"
+                accept="image/png, image/jpeg"
+                className="form-control"
+                onChange={handleOnUploadFile}
+                multiple
+              />
+            </div>
+            <br/>
               <button
                 type="submit"
                 className="btn btn-success float-right"

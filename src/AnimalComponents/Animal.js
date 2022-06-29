@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardBody, CardTitle, CardText } from "reactstrap";
+import { Card, CardBody, CardTitle, CardText, Row } from "reactstrap";
 import RepnileApi from "../api";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -40,9 +40,19 @@ function Animal() {
     [id]
   );
 
+  async function handleRemove(imgUrl) {
+    RepnileApi.deleteImage(imgUrl)
+    console.log(imgUrl);
+    window.location.href = window.location.href;
+  }
+
   const forSale = animal.forSale
     ? "This critter is for sale!"
     : "This critter is currently unavailable";
+
+    const breeder = animal.forSale
+    ? "This critter is a breeder!"
+    : "This critter is not a breeder";
 
   if (isLoading) {
     return <p>Loading &hellip;</p>;
@@ -55,23 +65,28 @@ function Animal() {
           <CardTitle className="font-weight-bold text-center">
             {animal.name}
             <br />
+            Species: {animal.species}
+            <br />
             {forSale}
             <br />
-            Weight: {animal.weight} grams
+            {breeder}
+            <br/>
+            Weight: {animal.weightInGrams} grams
             <br />
-            Coloration Pattern: {animal.colorationPattern}
+            Morph: {animal.morph}
             <br />
-            Primary Color: {animal.primaryColor}
+            Base Color: {animal.baseColor}
             <br />
-            Secondary Color: {animal.secondaryColor}
+            Pattern: {animal.pattern}
             <br />
-            Birth Date: {animal.birth_date}
+            Hatch Date: {animal.hatch_date}
             <br />
             Price: ${animal.price}
             <br />
+            Price with Plan: ${animal.priceWithPlan}
+            <br />
             Sex: {animal.sex}
             <br />
-            Species: {animal.species}
             <br />
             <img
               src={RepnileApi.getImage(animal.imgUrl)}
@@ -84,8 +99,28 @@ function Animal() {
             <br/>
             <Link to={`/animals/${animal.id}/images`}>Add Pictures</Link>
           </CardTitle>
-          <CardText></CardText>
+          <CardText>
+          
+          <Row className="col-md-12 offset-md-1">
+              
+          {animal.photos.map(photo => (
+            <div               className="col-md-3 animalPhoto">
+              <img
+              className="col-md-12"
+              src={RepnileApi.getImage(photo)}
+              alt={animal.name}
+              height="250px"
+              />
+              <button onClick={() => handleRemove(photo)}>x</button>
+
+            </div>
+
+          ))}
+        </Row>
+
+          </CardText>
         </CardBody>
+
       </Card>
       <br/>
       <h1 className="parents">PARENTS:</h1>
