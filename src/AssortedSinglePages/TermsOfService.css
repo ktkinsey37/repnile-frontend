@@ -1,0 +1,8 @@
+.tosCard {
+    background-image: url("../Images/image0.jpeg");
+    background-size: cover;
+}
+
+.tosCardText {
+    background: rgba(255,255,255,0.66);
+}

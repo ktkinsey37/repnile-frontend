@@ -60,7 +60,7 @@ function AnimalsPage({ }) {
             <Row>
               
               {animals.map(animal => (
-                <Link className="col-md-3" to={`/animals/${animal.id}`}>
+                <Link className="col-md-6 animalCard" to={`/animals/${animal.id}`}>
                   <AnimalCard animal={animal}/>
                 </Link>
               ))}

@@ -4,35 +4,43 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
+import image0 from "../Images/image0.jpeg"
+import "./TermsOfService.css"
+
 
 
 
 function TermsOfService({ }) {
 
   return (
-    <div className="col-md-12 offset-md-2">
+    <div className="col-md-12 offset-md-1">
     <br/>
     <section className="col-md-10">
-      <Card style={{ width: '90rem' }}>
+      <Card className="tosCard" style={{ width: '90rem'}}>
         <CardBody className="col-md-12 ">
-          <CardTitle className="font-weight-bold text-center">
+          <CardTitle className="font-weight-bold text-center tosCardText">
             <h2>Terms of Service</h2>
           </CardTitle>
   
-          <Card>
-          <h4>
+          <Card className="tosCardText">
+          <h4 className="font-weight-bold text-center">
           Return and Refund
           </h4>
 
-
+          <b>
           Animals are final purchase unless we have discussed a trade plan. Dropped tails anytime after purchase including during transit does not change anything about the quality of the animal and in no way warrants a refund. All animals are guaranteed live on arrival. Should your animal not make the journey, I require photo and video evidence of pick up time and condition of the gecko within 1 hour of pick up or the guarantee is void. If you have completed the appropriate steps and your animal did not make the trip, you are eligible for store credit up to the full value of your gecko before any applied discounts. Should you choose an animal as a replacement you will be responsible for the shipping cost.
           
+          </b>
+
           
+          <br/>
           
-          <h4>
+          <h4 className="font-weight-bold text-center">
           Shipping
           </h4>
           
+          
+          <b>
           
           Shipping is at the expense of the purchaser and a flat $55 unless there is a promotion. <br/>
           
@@ -45,6 +53,8 @@ function TermsOfService({ }) {
           It is imperative that someone will be there to receive the shipment at the time of the first delivery attempt. I cannot guarantee live animal delivery when the gecko has been trucked around on the back of a hot or cold UPS truck all day! I also do not offer net terms. All orders must be paid in full before I will ship. <br/><br/>
           
           These terms of service are updated as of 2/1/2021 by RepNile Exotics
+          
+          </b>
           </Card>
 
         </CardBody>

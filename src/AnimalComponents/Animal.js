@@ -7,6 +7,8 @@ import "./Animal.css"
 import AnimalCard from "./AnimalCard";
 
 function Animal() {
+
+  // Id is passed as a url param, while the animal is being retrieved based on id setloading is true
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [animal, setAnimal] = useState([]);
@@ -64,8 +66,6 @@ function Animal() {
         <CardBody>
           <CardTitle className="font-weight-bold text-center">
             {animal.name}
-            <br />
-            Species: {animal.species}
             <br />
             {forSale}
             <br />

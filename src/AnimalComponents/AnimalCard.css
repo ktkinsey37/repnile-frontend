@@ -1,9 +1,11 @@
 .AnimalCard {
-    background-color: rgb(212, 175, 12);
+    background-color: rgb(244, 235, 198);
     color: black;
-    height: 18em;
+    height: 36em;
+    
 }
 
 .cardtext {
     text-align: center;
+    align-self: flex-end;
 }

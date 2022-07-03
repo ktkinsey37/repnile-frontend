@@ -15,13 +15,6 @@ function AnimalCard({ animal }) {
     console.log(animal, "this is animal on animalcard render")
 
     const [isLoading, setIsLoading] = useState(false);
-
-
-    let logoUrl
-
-    // if (animal.imgUrl != null){
-    //     logoUrl = `http://joelburton-jobly.surge.sh/${company.logoUrl}`
-    // }
     
     const forSale = animal.forSale
     ? "This critter is for sale!"
@@ -36,18 +29,29 @@ function AnimalCard({ animal }) {
           <CardBody
           style={{
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center" 
 
           }}>
           <img
           src={RepnileApi.getImage(animal.imgUrl)}
           alt={animal.name}
-          width="350px"
-          height="270px"
+          width="95%"
+          height="75%"
           className="position-absolute"
         />
         <br/>
-            <CardTitle className="font-weight-bold text-center">
+            <CardTitle className="font-weight-bold text-center cardText">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <br/>
             <br/>
             <br/>
