@@ -10,6 +10,7 @@ import {
 import RepnileApi from "../api"
 import AnimalSearchForm from "./AnimalSearchForm";
 import AnimalCard from "./AnimalCard";
+import "./AnimalsPage.css"
 
 
 
@@ -46,11 +47,11 @@ function BreedersPage({ }) {
     console.log(animals.map((animal) => console.log(animal)), "this is animals on animals page")
 
   return (
-    <div className="col-md-12 offset-md-1">
+    <div className="col-md-12 offset-md-1 animalsPage">
     <br/>
     <section className="col-md-10">
       <Card>
-        <CardBody className="col-md-12 ">
+        <CardBody className="col-md-12 animalsPage">
           <CardTitle className="font-weight-bold text-center">
             <h2>Animals</h2>
           </CardTitle>
@@ -60,7 +61,7 @@ function BreedersPage({ }) {
             <Row>
               
               {animals.map(animal => (
-                <Link className="col-md-3" to={`/animals/${animal.id}`}>
+                <Link className="col-md-6 animalCard" to={`/animals/${animal.id}`}>
                   <AnimalCard animal={animal}/>
                 </Link>
               ))}
