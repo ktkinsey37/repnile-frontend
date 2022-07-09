@@ -4,16 +4,16 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
-
+import "./About.css"
 
 
 function About({ }) {
 
   return (
-    <div className="col-md-12 offset-md-2">
+    <div className="col-md-12 offset-md-1">
     <br/>
     <section className="col-md-10">
-      <Card style={{ width: '60rem' }}>
+      <Card className="aboutCard" style={{ width: '90rem' }}>
         <CardBody className="col-md-12 ">
           <CardTitle className="font-weight-bold text-center">
             <h2>About</h2>

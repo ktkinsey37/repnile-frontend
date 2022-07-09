@@ -17,12 +17,12 @@ function TermsOfService({ }) {
     <br/>
     <section className="col-md-10">
       <Card className="tosCard" style={{ width: '90rem'}}>
-        <CardBody className="col-md-12 ">
+        <CardBody className="col-md-12">
           <CardTitle className="font-weight-bold text-center tosCardText">
             <h2>Terms of Service</h2>
           </CardTitle>
   
-          <Card className="tosCardText">
+          <CardTitle className="tosCardText">
           <h4 className="font-weight-bold text-center">
           Return and Refund
           </h4>
@@ -55,7 +55,7 @@ function TermsOfService({ }) {
           These terms of service are updated as of 2/1/2021 by RepNile Exotics
           
           </b>
-          </Card>
+          </CardTitle>
 
         </CardBody>
       </Card>
