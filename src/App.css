@@ -26,3 +26,22 @@
     transform: rotate(360deg);
   }
 }
+
+html,
+body {
+  height: 100%;
+  background-color: rgb(9, 44, 28);
+
+}
+
+
+/* Essentials */
+
+.container {
+  display: table;
+}
+
+.content {
+  display: table-row;
+  height: 100%;
+}

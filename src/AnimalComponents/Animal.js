@@ -101,7 +101,7 @@ function Animal() {
           </CardTitle>
           <CardText>
           
-          <Row className="col-md-12 offset-md-1">
+          <Row className="col-md-12">
               
           {animal.photos.map(photo => (
             <div               className="col-md-3 animalPhoto">
