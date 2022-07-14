@@ -37,7 +37,7 @@ function MessagesPage() {
     }
 
   return (
-    <div className="col-md-12 offset-md-4">
+    <div className="col-md-12 offset-md-4 justify-content-center">
     <br/>
     <section className="col-md-10">
       <Card style={{ width: '30rem' }}>

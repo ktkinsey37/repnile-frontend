@@ -15,6 +15,7 @@
     "react-scripts": "4.0.3",
     "react-select": "^5.2.2",
     "reactstrap": "^9.0.1",
+    "twilio": "^3.79.0",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },

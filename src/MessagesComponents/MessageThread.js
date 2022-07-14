@@ -40,7 +40,7 @@ function MessageThread() {
   }
 
   return (
-    <section className="col-md-4">
+    <section className="col-md-4 justify-content-center">
       <Card>
         <CardBody>
           <CardTitle className="font-weight-bold text-center"></CardTitle>

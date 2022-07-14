@@ -36,7 +36,6 @@ const OwnerMessageSender = ({ messageThread }) => {
     // login(formData);
     // Needs to send message to db, and update message sent... can just post message tomessages/id?
     setFormData(INITIAL_STATE);
-    console.log("************************************************************************************************HELLO")
     window.location.href = window.location.href;
   };
 

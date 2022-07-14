@@ -48,7 +48,7 @@ function UserMessageThread({ id }) {
   }
 
   return (
-    <section className="col-md-4">
+    <section className="justify-content-center">
       <Card>
         <CardBody>
           <CardTitle className="font-weight-bold text-center"></CardTitle>

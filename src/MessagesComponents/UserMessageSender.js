@@ -63,16 +63,18 @@ const MessageSender = () => {
   /** render form */
 
   return (
-    <div>
+    <div className="text-center justify-content-center col-md-4">
       <UserMessageThread id={msgId} />
       <form onSubmit={handleSubmit}>
         <label htmlFor="messageText">Message:</label>
-        <input
+        <textarea
           id="messageText"
           name="messageText"
           value={formData.messageText}
           onChange={handleChange}
           placeholder="Message Text"
+          rows="4"
+          cols="40"
         />
         <br />
         <button>Send Message</button>

@@ -15,12 +15,12 @@ function About({ }) {
     <section className="col-md-10">
       <Card className="aboutCard" style={{ width: '90rem' }}>
         <CardBody className="col-md-12 ">
-          <CardTitle className="font-weight-bold text-center">
+          <CardTitle className="font-weight-bold text-center aboutCardText">
             <h2>About</h2>
           </CardTitle>
   
-          <Card>
-          <h4>
+          <CardTitle className="aboutCardText">
+          <h4 className="font-weight-bold text-center">
           Origin Story
           </h4>
 
@@ -33,11 +33,11 @@ function About({ }) {
           
           <br/>
           <br/>
-          <h6>
+          <h6 className="font-weight-bold text-center">
           Core Values
           </h6>
           
-          </Card>
+          </CardTitle>
 
         </CardBody>
       </Card>
