@@ -30,7 +30,6 @@ function AnimalCard({ animal }) {
           style={{
             display: "flex",
             justifyContent: "center" 
-
           }}>
           <img
           src={RepnileApi.getImage(animal.imgUrl)}

@@ -49,7 +49,7 @@ function AnimalsPage({ }) {
     <div className="col-md-12 animalsPage">
     <br/>
     <section className="col-md-10">
-      <Card className="">
+      <Card>
         <CardBody className="col-md-12 mainCard">
           <CardTitle className="font-weight-bold text-center">
             <h2>Animals</h2>

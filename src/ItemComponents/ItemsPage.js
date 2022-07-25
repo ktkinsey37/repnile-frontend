@@ -5,10 +5,12 @@ import {
   CardBody,
   CardTitle,
   CardText,
+  Row
 } from "reactstrap";
 import ItemSearchForm from "./ItemSearchForm";
 import ItemCard from "./ItemCard";
 import RepnileApi from "../api";
+import "../AnimalComponents/AnimalsPage.css"
 
 function ItemsPage({}) {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,24 +42,25 @@ function ItemsPage({}) {
     // console.log(animals.map((animal) => console.log(animal)), "this is animals on animals page")
 
   return (
-    <div className="col-md-12 offset-md-1">
+    <div className="col-md-12 animalsPage">
     <br/>
     <section className="col-md-10">
       <Card>
-        <CardBody className="col-md-12 ">
+        <CardBody className="col-md-12 mainCard">
           <CardTitle className="font-weight-bold text-center">
             <h2>Items</h2>
           </CardTitle>
           <CardText>
           </CardText>
-
-          <Card>
-            {items.map(item => (
-              <Link to={`/items/${item.id}`}>
-                <ItemCard item={item}/>
-              </Link>
-            ))}
-          </Card>
+            <Row className="animalsPage">
+              <Card>
+                {items.map(item => (
+                  <Link className="col-md-6 animalCard" to={`/items/${item.id}`}>
+                    <ItemCard item={item}/>
+                  </Link>
+                ))}
+              </Card>
+            </Row>
         </CardBody>
       </Card>
     </section>

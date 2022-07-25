@@ -39,7 +39,10 @@ function ItemCard({ item }) {
   
     return (
         <Card className="col-md-12 ItemCard">
-          <CardBody className="col-md-12 ">
+          <CardBody           style={{
+            display: "flex",
+            justifyContent: "center" 
+          }}>
           <img
           src={RepnileApi.getImage(item.imgUrl)}
           alt={item.name}

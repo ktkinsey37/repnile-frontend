@@ -47,18 +47,18 @@ function BreedersPage({ }) {
     console.log(animals.map((animal) => console.log(animal)), "this is animals on animals page")
 
   return (
-    <div className="col-md-12 offset-md-1 animalsPage">
+    <div className="col-md-12 animalsPage">
     <br/>
     <section className="col-md-10">
       <Card>
-        <CardBody className="col-md-12 animalsPage">
+        <CardBody className="col-md-12 mainCard">
           <CardTitle className="font-weight-bold text-center">
-            <h2>Animals</h2>
+            <h2>Breeders</h2>
           </CardTitle>
           <CardText>
             <AnimalSearchForm search={search} />
           </CardText>
-            <Row>
+            <Row className="animalsPage">
               
               {animals.map(animal => (
                 <Link className="col-md-6 animalCard" to={`/animals/${animal.id}`}>
